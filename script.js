@@ -5,8 +5,46 @@ let currentIndex = 0;
 let correctCount = 0;
 document.getElementById("totalCount").innerText = questions.length;
 
-// Lưu trạng thái
+// ==== Khôi phục trạng thái từ localStorage ====
+let savedAnswers = JSON.parse(localStorage.getItem("indexAnswers") || "null");
+let savedCorrect = parseInt(localStorage.getItem("indexCorrectCount") || "0");
+
 let answers = Array(questions.length).fill(null);
+if (savedAnswers) {
+  answers = savedAnswers;
+  correctCount = savedCorrect;
+}
+document.getElementById("correctCount").innerText = correctCount;
+// =============================================
+
+// ==== Tạo nút Làm lại 200 câu ====
+const resetBtn = document.createElement("button");
+resetBtn.innerText = "🔄 Làm lại 200 câu";
+resetBtn.style.marginLeft = "10px";
+resetBtn.onclick = () => {
+  // Xóa dữ liệu localStorage liên quan index
+  localStorage.removeItem("indexAnswers");
+  localStorage.removeItem("indexCorrectCount");
+
+  // Reset biến
+  answers = Array(questions.length).fill(null);
+  correctCount = 0;
+
+  // Cập nhật giao diện
+  document.getElementById("correctCount").innerText = correctCount;
+  document.querySelectorAll(".sidebar-item").forEach(item => {
+    item.classList.remove("correctMark", "wrongMark");
+  });
+
+  // Render lại từ câu đầu tiên
+  renderQuestion(0);
+
+  alert("Đã làm mới 200 câu, bạn có thể bắt đầu lại từ đầu!");
+};
+
+// Gắn nút ngay cạnh h1.stats
+document.querySelector(".stats").appendChild(resetBtn);
+// =================================
 
 function renderQuestion(index) {
   const q = questions[index];
@@ -41,17 +79,21 @@ function renderQuestion(index) {
           btn.classList.add("correct");
           sidebarItem.classList.add("correctMark");
           correctCount++;
-          document.getElementById("correctCount").innerText = correctCount;
           answers[index] = { selected: opt, isCorrect: true, showAnswer: answers[index]?.showAnswer || false };
         } else {
           btn.classList.add("wrong");
           sidebarItem.classList.add("wrongMark");
-          document.getElementById("correctCount").innerText = correctCount;
           answers[index] = { selected: opt, isCorrect: false, showAnswer: answers[index]?.showAnswer || false };
         }
+
+        // ==== Lưu trạng thái vào localStorage ====
+        localStorage.setItem("indexAnswers", JSON.stringify(answers));
+        localStorage.setItem("indexCorrectCount", correctCount);
+        // =========================================
+
+        document.getElementById("correctCount").innerText = correctCount;
       };
       
-
     div.appendChild(btn);
   });
 
@@ -90,12 +132,9 @@ function renderQuestion(index) {
       answers[index].showAnswer = true;
     }
 
-    // showBtn.disabled = true;
+    // lưu lại trạng thái showAnswer
+    localStorage.setItem("indexAnswers", JSON.stringify(answers));
   };
-  // disable nếu đã xem đáp án
-//   if (answers[index]?.showAnswer) {
-//     showBtn.disabled = true;
-//   }
   navDiv.appendChild(showBtn);
 
   div.appendChild(navDiv);
@@ -117,6 +156,12 @@ questions.forEach((q, index) => {
   link.innerText = index + 1;
   link.onclick = () => renderQuestion(index);
   questionList.appendChild(link);
+
+  // đánh dấu màu khi load lại
+  if (answers[index]) {
+    if (answers[index].isCorrect) link.classList.add("correctMark");
+    else if (answers[index].selected) link.classList.add("wrongMark");
+  }
 });
 
 // render câu đầu tiên

@@ -9,29 +9,64 @@ function shuffle(array) {
   return array;
 }
 
-// tạo nút làm lại bài test
-const resetBtn = document.createElement("button");
-resetBtn.innerText = "🔄 Làm lại bài test";
-resetBtn.style.marginLeft = "10px";
-resetBtn.onclick = () => {
-  location.reload(); // F5 reload trang
-};
-
-// gắn nút cạnh số câu đúng
-document.getElementById("correctCount").parentNode.appendChild(resetBtn);
-
-// chọn ngẫu nhiên 60 câu từ 200
-const selectedQuestions = shuffle([...questions]).slice(0, 70);
-
 const quizContainer = document.getElementById("quiz");
 const questionList = document.getElementById("questionList");
 
 let currentIndex = 0;
 let correctCount = 0;
-document.getElementById("totalCount").innerText = selectedQuestions.length;
 
-// lưu trạng thái
+// ==== Khôi phục trạng thái test ====
+let savedQuestions = JSON.parse(localStorage.getItem("testQuestions") || "null");
+let savedAnswers = JSON.parse(localStorage.getItem("testAnswers") || "null");
+let savedCorrect = parseInt(localStorage.getItem("testCorrectCount") || "0");
+
+// nếu chưa có → random mới
+let selectedQuestions = savedQuestions || shuffle([...questions]).slice(0, 70);
 let answers = Array(selectedQuestions.length).fill(null);
+if (savedAnswers) {
+  answers = savedAnswers;
+  correctCount = savedCorrect;
+}
+
+document.getElementById("totalCount").innerText = selectedQuestions.length;
+document.getElementById("correctCount").innerText = correctCount;
+// ===================================
+
+// ==== Nút Làm lại bài test ====
+const resetBtn = document.createElement("button");
+resetBtn.innerText = "🔄 Làm lại bài test";
+resetBtn.style.marginLeft = "10px";
+resetBtn.onclick = () => {
+  // Xóa dữ liệu localStorage test
+  localStorage.removeItem("testQuestions");
+  localStorage.removeItem("testAnswers");
+  localStorage.removeItem("testCorrectCount");
+
+  // Random lại câu hỏi mới
+  selectedQuestions = shuffle([...questions]).slice(0, 70);
+  answers = Array(selectedQuestions.length).fill(null);
+  correctCount = 0;
+
+  // Reset giao diện
+  document.getElementById("correctCount").innerText = correctCount;
+  document.getElementById("totalCount").innerText = selectedQuestions.length;
+  questionList.innerHTML = "";
+  selectedQuestions.forEach((q, index) => {
+    const link = document.createElement("div");
+    link.id = `q${index}`;
+    link.className = "sidebar-item";
+    link.innerText = index + 1;
+    link.onclick = () => renderQuestion(index);
+    questionList.appendChild(link);
+  });
+
+  renderQuestion(0);
+  alert("Đã làm mới bài test, bạn có thể bắt đầu lại!");
+};
+
+// Gắn nút ngay cạnh h1.stats
+document.querySelector(".stats").appendChild(resetBtn);
+// =================================
 
 function renderQuestion(index) {
   const q = selectedQuestions[index];
@@ -70,6 +105,12 @@ function renderQuestion(index) {
           div.querySelectorAll(".option-btn").forEach(b => b.disabled = true);
 
           document.getElementById("correctCount").innerText = correctCount;
+          // ==== Lưu trạng thái test ====
+          localStorage.setItem("testQuestions", JSON.stringify(selectedQuestions));
+          localStorage.setItem("testAnswers", JSON.stringify(answers));
+          localStorage.setItem("testCorrectCount", correctCount);
+          // ==============================
+
           checkCompletion();
       };
 
@@ -124,6 +165,12 @@ selectedQuestions.forEach((q, index) => {
   link.innerText = index + 1;
   link.onclick = () => renderQuestion(index);
   questionList.appendChild(link);
+
+  // đánh dấu màu khi load lại
+  if (answers[index]) {
+    if (answers[index].isCorrect) link.classList.add("correctMark");
+    else if (answers[index].selected) link.classList.add("wrongMark");
+  }
 });
 
 function checkCompletion() {
