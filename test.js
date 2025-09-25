@@ -96,11 +96,11 @@ function shuffle(array) {
         answers[index].showAnswer = true;
       }
   
-    //   showBtn.disabled = true;
-    // };
-    // if (answers[index]?.showAnswer) {
-    //   showBtn.disabled = true;
-    // }
+      showBtn.disabled = true;
+    };
+    if (answers[index]?.showAnswer) {
+      showBtn.disabled = true;
+    }
     navDiv.appendChild(showBtn);
   
     div.appendChild(navDiv);
