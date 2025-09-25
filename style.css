@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #f9f9f9;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .nav-link {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 8px 12px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+  
+  .nav-link:hover {
+    background: #0056b3;
+  }
+  
+  .stats {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 18px;
+  }
+  
+  .quiz-container {
+    display: flex;
+  }
+  
+  #quiz {
+    flex: 3;
+  }
+  
+  .question {
+    background: #fff;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .question h3 {
+    margin-bottom: 15px;
+  }
+  
+  
+  button {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button.correct {
+    background: #28a745;
+    color: #fff;
+  }
+  
+  button.wrong {
+    background: #dc3545;
+    color: #fff;
+  }
+  
+  button.answered {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .sidebar {
+    flex: 1;
+    margin-left: 20px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  .sidebar h3 {
+    text-align: center;
+  }
+  
+  .sidebar-item {
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #eee;
+  }
+  
+  .sidebar-item.correctMark {
+    background: #28a745;
+    color: #fff;
+  }
+  
+  .sidebar-item.wrongMark {
+    background: #dc3545;
+    color: #fff;
+  }
+
+#questionList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.sidebar-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #eee;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.sidebar-item:hover {
+  background: #ccc;
+}
+
+.sidebar-item.correctMark {
+  background: #28a745;
+  color: #fff;
+}
+
+.sidebar-item.wrongMark {
+  background: #dc3545;
+  color: #fff;
+}
+
+.sidebar-item.active {
+  border: 2px solid #000;
+}
+
+.option-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 8px 0;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f7f7f7;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .option-btn:hover {
+    background: #eaeaea;
+  }
+  
+  .option-btn.correct {
+    background: #28a745;
+    color: #fff;
+    border-color: #28a745;
+  }
+  
+  .option-btn.wrong {
+    background: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+  }
