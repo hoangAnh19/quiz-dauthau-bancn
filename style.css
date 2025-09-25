@@ -104,42 +104,45 @@ body {
     color: #fff;
   }
 
-#questionList {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 10px;
-}
+  #questionList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+    gap: 6px;
+    margin-top: 10px;
+  }
 
-.sidebar-item {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #eee;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.sidebar-item:hover {
-  background: #ccc;
-}
-
-.sidebar-item.correctMark {
-  background: #28a745;
-  color: #fff;
-}
-
-.sidebar-item.wrongMark {
-  background: #dc3545;
-  color: #fff;
-}
-
-.sidebar-item.active {
-  border: 2px solid #000;
-}
+  .sidebar-item {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    user-select: none;
+    transition: all 0.2s;
+  }
+  
+  .sidebar-item:hover {
+    background: #ddd;
+  }
+  
+  .sidebar-item.correctMark {
+    background: #28a745;
+    color: #fff;
+  }
+  
+  .sidebar-item.wrongMark {
+    background: #dc3545;
+    color: #fff;
+  }
+  
+  .sidebar-item.active {
+    border: 2px solid #000;
+  }
 
 .option-btn {
     display: block;
