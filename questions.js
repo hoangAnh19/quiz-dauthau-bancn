@@ -447,7 +447,7 @@ const questions = [
       "Bảo đảm dự thầu hợp lệ",
       "Đã thực hiện nghĩa vụ kê khai thuế và nộp thuế"
     ],
-    "correct": "C"
+    "correct": "B"
   },
   {
     "question": "Đối với gói thầu mua sắm hàng hóa, xây lắp, phi tư vấn, phương pháp để đánh giá về năng lực và kinh nghiệm là?",
@@ -487,7 +487,7 @@ const questions = [
       "Năng lực tài chính",
       "Có bảo đảm dự thầu hợp lệ"
     ],
-    "correct": "A"
+    "correct": "C"
   },
   {
     "question": "Tiêu chuẩn đánh giá về kỹ thuật được yêu cầu về nhãn hiệu theo nhóm nhãn hiệu cho nguyên nhiên vật liệu, vật tư và các yếu tố đầu vào đối với trường hợp nào?",
@@ -1107,7 +1107,7 @@ const questions = [
       "Bằng tổng thời gian cấm của các hành vi vi phạm nhưng tối đa không quá 05 năm",
       "Bằng thời gian cấm của hành vi vi phạm có thời gian bị cấm cao nhất"
     ],
-    "correct": "A"
+    "correct": "C"
   },
   {
     "question": "Hành vi gian lận trong hoạt động đấu thầu sẽ bị cấm tham gia hoạt động đấu thầu trong thời gian bao lâu?",
