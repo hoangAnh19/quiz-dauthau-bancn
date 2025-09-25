@@ -8,17 +8,18 @@ function shuffle(array) {
     }
     return array;
   }
-  
+
+
   // tạo nút làm lại bài test
-  const resetBtn = document.createElement("button");
-  resetBtn.innerText = "🔄 Làm lại bài test";
-  resetBtn.style.marginLeft = "10px";
-  resetBtn.onclick = () => {
-    location.reload(); // F5 reload trang
-  };
-  
-  // gắn nút cạnh số câu đúng
-  document.getElementById("correctCount").parentNode.appendChild(resetBtn);
+const resetBtn = document.createElement("button");
+resetBtn.innerText = "🔄 Làm lại bài test";
+resetBtn.style.marginLeft = "10px";
+resetBtn.onclick = () => {
+  location.reload(); // F5 reload trang
+};
+
+// gắn nút cạnh số câu đúng
+document.getElementById("correctCount").parentNode.appendChild(resetBtn);
   
   // chọn ngẫu nhiên 60 câu từ 200
   const selectedQuestions = shuffle([...questions]).slice(0, 70);
@@ -40,7 +41,7 @@ function shuffle(array) {
     div.className = "question";
     div.innerHTML = `<h3>Câu ${index + 1}: ${q.question}</h3>`;
   
-    ["A", "B", "C", "D"].forEach((opt, i) => {
+    ["A","B","C","D"].forEach((opt, i) => {
       const btn = document.createElement("button");
       btn.className = "option-btn";
       btn.innerText = `${opt}: ${q.options[i]}`;
@@ -53,24 +54,23 @@ function shuffle(array) {
   
       btn.onclick = () => {
         // nếu đã trả lời thì không cho làm lại
-        if (answers[index] && answers[index].selected) return;
+        if (answers[index]) return;
   
         if (opt === q.correct) {
           btn.classList.add("correct");
           document.querySelector(`#q${index}`).classList.add("correctMark");
           correctCount++;
-          answers[index] = { selected: opt, isCorrect: true, showAnswer: answers[index]?.showAnswer || false };
+          answers[index] = { selected: opt, isCorrect: true, showAnswer: false };
         } else {
           btn.classList.add("wrong");
           document.querySelector(`#q${index}`).classList.add("wrongMark");
-          answers[index] = { selected: opt, isCorrect: false, showAnswer: answers[index]?.showAnswer || false };
+          answers[index] = { selected: opt, isCorrect: false, showAnswer: false };
         }
   
         // khóa tất cả nút sau khi chọn
         div.querySelectorAll(".option-btn").forEach(b => b.disabled = true);
   
         document.getElementById("correctCount").innerText = correctCount;
-        checkCompletion()
       };
   
       div.appendChild(btn);
@@ -79,9 +79,6 @@ function shuffle(array) {
     // navigation + nút xem đáp án
     const navDiv = document.createElement("div");
     navDiv.style.marginTop = "10px";
-    navDiv.style.display = "flex";
-    navDiv.style.justifyContent= "center";
-    
   
     if (index > 0) {
       const prevBtn = document.createElement("button");
@@ -105,18 +102,16 @@ function shuffle(array) {
       const correctBtn = div.querySelectorAll(".option-btn")[correctIndex];
       correctBtn.classList.add("correct");
   
-      // Đánh dấu trạng thái đã xem đáp án
       if (!answers[index]) {
         answers[index] = { selected: null, isCorrect: false, showAnswer: true };
       } else {
         answers[index].showAnswer = true;
       }
+  
+    //   showBtn.disabled = true;
     };
     if (answers[index]?.showAnswer) {
-      const correctOpt = q.correct;
-      const correctIndex = { "A": 0, "B": 1, "C": 2, "D": 3 }[correctOpt];
-      const correctBtn = div.querySelectorAll(".option-btn")[correctIndex];
-      correctBtn.classList.add("correct");
+    //   showBtn.disabled = true;
     }
     navDiv.appendChild(showBtn);
   
@@ -140,16 +135,6 @@ function shuffle(array) {
     questionList.appendChild(link);
   });
   
-  function checkCompletion() {
-    const answeredCount = answers.filter(a => a && a.selected !== null).length;
-    if (answeredCount === selectedQuestions.length) {
-      // Đã trả lời đủ 70 câu
-      const message = correctCount >= 35
-        ? `🎉 Chúc mừng bạn đã vượt qua bài thi, với kết quả ${correctCount} câu/70 câu!`
-        : `❌ Bạn đạt ${correctCount} câu/70 câu, chưa vượt qua bài thi, hãy cố gắng ôn luyện thêm.`;
-      setTimeout(() => alert(message), 100); // Hiện popup
-    }
-  }
-
   // render câu đầu tiên
   renderQuestion(0);
+  

@@ -58,6 +58,9 @@ function renderQuestion(index) {
   // navigation + nút xem đáp án
   const navDiv = document.createElement("div");
   navDiv.style.marginTop = "10px";
+  navDiv.style.display = "flex";
+  navDiv.style.justifyContent= "center";
+  navDiv.style.fontSize = "16px";
 
   if (index > 0) {
     const prevBtn = document.createElement("button");
