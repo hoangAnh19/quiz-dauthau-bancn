@@ -8,9 +8,21 @@ function shuffle(array) {
     }
     return array;
   }
+
+
+  // tạo nút làm lại bài test
+const resetBtn = document.createElement("button");
+resetBtn.innerText = "🔄 Làm lại bài test";
+resetBtn.style.marginLeft = "10px";
+resetBtn.onclick = () => {
+  location.reload(); // F5 reload trang
+};
+
+// gắn nút cạnh số câu đúng
+document.getElementById("correctCount").parentNode.appendChild(resetBtn);
   
   // chọn ngẫu nhiên 60 câu từ 200
-  const selectedQuestions = shuffle([...questions]).slice(0, 60);
+  const selectedQuestions = shuffle([...questions]).slice(0, 70);
   
   const quizContainer = document.getElementById("quiz");
   const questionList = document.getElementById("questionList");
