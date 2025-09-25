@@ -87,12 +87,12 @@ function renderQuestion(index) {
       answers[index].showAnswer = true;
     }
 
-    showBtn.disabled = true;
+    // showBtn.disabled = true;
   };
   // disable nếu đã xem đáp án
-  if (answers[index]?.showAnswer) {
-    showBtn.disabled = true;
-  }
+//   if (answers[index]?.showAnswer) {
+//     showBtn.disabled = true;
+//   }
   navDiv.appendChild(showBtn);
 
   div.appendChild(navDiv);
