@@ -4,24 +4,54 @@
   <meta charset="UTF-8" />
   <title>Quiz 200 câu hỏi</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+    body { font-family: Arial, sans-serif; display: flex; margin: 0; }
+    .main { flex: 3; padding: 20px; }
+    .sidebar { flex: 1; max-width: 250px; border-left: 1px solid #ccc; padding: 20px; overflow-y: scroll; height: 100vh; }
     .question { font-weight: bold; margin-bottom: 10px; }
     .option { margin: 5px 0; }
     button { margin-top: 15px; padding: 10px 15px; }
     #result { margin-top: 20px; font-size: 18px; font-weight: bold; }
+    .sidebar h2 { margin-top: 0; }
+    .q-item { display: inline-block; width: 35px; height: 35px; line-height: 35px; margin: 4px; text-align: center; border-radius: 50%; cursor: pointer; background: #eee; }
+    .q-item.correct { background: #4CAF50; color: #fff; } /* xanh */
+    .q-item.wrong { background: #f44336; color: #fff; } /* đỏ */
+    .q-item.active { border: 2px solid #000; }
   </style>
 </head>
 <body>
-  <h1>Trắc nghiệm 200 câu hỏi</h1>
-  <div id="quiz"></div>
-  <button onclick="nextQuestion()">Câu tiếp theo</button>
-  <div id="result"></div>
+    <div class="main">
+        <h1>Trắc nghiệm 200 câu hỏi</h1>
+        <div id="stats">Điểm: 0 / 0</div>
+        <div id="quiz"></div>
+        <button onclick="nextQuestion()">Câu tiếp theo</button>
+        <div id="result"></div>
+      </div>
+    
+      <div class="sidebar">
+        <h2>Danh sách câu</h2>
+        <div id="question-list"></div>
+      </div>
 
   <!-- Import dữ liệu câu hỏi -->
   <script src="questions.js"></script>
   <script>
     let current = 0;
     let score = 0;
+    let answeredCount = 0;
+    let answers = Array(questions.length).fill(null); // lưu kết quả đã chọn
+
+    function updateStats() {
+      document.getElementById("stats").innerText = "Điểm: " + score + " / " + answeredCount;
+    }
+
+    function renderSidebar() {
+      const listDiv = document.getElementById("question-list");
+      listDiv.innerHTML = questions.map((_, i) => `
+        <div class="q-item ${answers[i] === 'correct' ? 'correct' : answers[i] === 'wrong' ? 'wrong' : ''} ${i === current ? 'active' : ''}" onclick="jumpTo(${i})">
+          ${i+1}
+        </div>
+      `).join("");
+    }
 
     function loadQuestion() {
       const q = questions[current];
@@ -38,18 +68,32 @@
         `).join("")}
         <button onclick="checkAnswer()">Chọn đáp án</button>
       `;
+      renderSidebar();
+      updateStats();
     }
 
     function checkAnswer() {
       const selected = document.querySelector('input[name="option"]:checked');
       if (!selected) { alert("Vui lòng chọn đáp án!"); return; }
       const answer = selected.value;
+      
+      // Nếu câu chưa trả lời -> tăng answeredCount
+      if (answers[current] === null) {
+        answeredCount++;
+      }
+
       if (answer === questions[current].correct) {
-        score++;
+        if (answers[current] !== 'correct') score++; // chỉ cộng nếu chưa đúng trước đó
+        answers[current] = 'correct';
         document.getElementById("result").innerText = "✅ Chính xác!";
       } else {
+        // Nếu trước đó đã đúng thì trừ điểm
+        if (answers[current] === 'correct') score--;
+        answers[current] = 'wrong';
         document.getElementById("result").innerText = "❌ Sai! Đáp án đúng là: " + questions[current].correct;
       }
+      renderSidebar();
+      updateStats();
     }
 
     function nextQuestion() {
@@ -60,6 +104,12 @@
       } else {
         document.getElementById("quiz").innerHTML = "<h2>Bạn đã hoàn thành! Điểm số: " + score + "/" + questions.length + "</h2>";
       }
+    }
+
+    function jumpTo(index) {
+      current = index;
+      document.getElementById("result").innerText = "";
+      loadQuestion();
     }
 
     // Load câu hỏi đầu tiên
