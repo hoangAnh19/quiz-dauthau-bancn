@@ -437,7 +437,7 @@ const questions = [
       "Năng lực tài chính",
       "Việc thực hiện nghĩa vụ kê khai thuế, nộp thuế"
     ],
-    "correct": "D"
+    "correct": "B"
   },
   {
     "question": "Nội dung nào không phải là tiêu chuẩn đánh giá về tính hợp lệ của hồ sơ dự thầu gói thầu tư vấn?",
@@ -447,7 +447,7 @@ const questions = [
       "Bảo đảm dự thầu hợp lệ",
       "Đã thực hiện nghĩa vụ kê khai thuế và nộp thuế"
     ],
-    "correct": "B"
+    "correct": "C"
   },
   {
     "question": "Đối với gói thầu mua sắm hàng hóa, xây lắp, phi tư vấn, phương pháp để đánh giá về năng lực và kinh nghiệm là?",
