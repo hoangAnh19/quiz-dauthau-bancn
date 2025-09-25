@@ -19,9 +19,23 @@
   </style>
 </head>
 <body>
-    <div class="main">
+    <div id="app">
+        <h1>200 Câu hỏi trắc nghiệm</h1>
+        <a href="test.html" class="nav-link">👉 Làm bài Test 60 câu ngẫu nhiên</a>
+        <div class="stats">
+          Đúng: <span id="correctCount">0</span> / <span id="totalCount">200</span>
+        </div>
+        <div class="quiz-container">
+          <div id="quiz"></div>
+          <div class="sidebar">
+            <h3>Danh sách câu hỏi</h3>
+            <div id="questionList"></div>
+          </div>
+        </div>
+      </div>
+       <div class="main">
         <h1>Trắc nghiệm 200 câu hỏi</h1>
-        <div id="stats">Điểm: 0 / 0</div>
+        <h1 id="stats">Điểm: 0 / 0</h1>
         <div id="quiz"></div>
         <button onclick="nextQuestion()">Câu tiếp theo</button>
         <div id="result"></div>

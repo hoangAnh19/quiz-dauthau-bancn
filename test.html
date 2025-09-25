@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài Test 60 câu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Bài Test - 60 câu ngẫu nhiên</h1>
+        <a href="index.html" class="nav-link">⬅️ Quay lại 200 câu đầy đủ</a>
+        <div class="stats">
+          Đúng: <span id="correctCount">0</span> / <span id="totalCount">60</span>
+        </div>
+        <div class="quiz-container">
+          <div id="quiz"></div>
+          <div class="sidebar">
+            <h3>Danh sách câu hỏi</h3>
+            <div id="questionList"></div>
+          </div>
+        </div>
+      </div>
+
+  <script src="questions.js"></script>
+  <script>
+    // hàm shuffle array
+    function shuffle(array) {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    }
+
+    const selectedQuestions = shuffle([...questions]).slice(0, 60);
+    let correctCount = 0;
+
+    const quizContainer = document.getElementById("quiz");
+    const questionList = document.getElementById("questionList");
+
+    selectedQuestions.forEach((q, index) => {
+      // render câu hỏi
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<h3>Câu ${index + 1}: ${q.question}</h3>`;
+      
+      ["A","B","C","D"].forEach(opt => {
+        const btn = document.createElement("button");
+        btn.innerText = `${opt}: ${q[opt]}`;
+        btn.onclick = () => {
+          if (!btn.classList.contains("answered")) {
+            if (opt === q.correct) {
+              btn.classList.add("correct");
+              correctCount++;
+              document.getElementById("correctCount").innerText = correctCount;
+              document.querySelector(`#q${index}`).classList.add("correctMark");
+            } else {
+              btn.classList.add("wrong");
+              document.querySelector(`#q${index}`).classList.add("wrongMark");
+            }
+            div.querySelectorAll("button").forEach(b => b.classList.add("answered"));
+          }
+        };
+        div.appendChild(btn);
+      });
+
+      quizContainer.appendChild(div);
+
+      // sidebar
+      const link = document.createElement("div");
+      link.id = `q${index}`;
+      link.className = "sidebar-item";
+      link.innerText = `Câu ${index+1}`;
+      link.onclick = () => {
+        div.scrollIntoView({behavior: "smooth"});
+      };
+      questionList.appendChild(link);
+    });
+  </script>
+</body>
+</html>
