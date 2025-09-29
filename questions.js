@@ -2111,7 +2111,7 @@ const questions = [
     {
       "question": "Đối với đấu thầu qua mạng, trường hợp cần sửa đổi E-HSDT đã nộp trước thời điểm đóng thầu, nhà thầu phải thực hiện theo phương án nào sau đây khi E-HSMT của gói thầu này không phải sửa đổi?",
       "options": ["Phải tiến hành rút toàn bộ E-HSDT đã nộp trước đó để sửa đổi cho phù hợp và tiến hành nộp lại E-HSDT mới", "Không phải tiến hành rút toàn bộ E-HSDT đã nộp trước đó, chỉ cần sửa đổi cho phù hợp và tiến hành nộp lại E-HSDT mới", "Sửa đổi cho phù hợp E-HSDT đã nộp mà không phải nộp lại E-HSDT mới", "Nhà thầu không được sửa đổi E-HSDT đã nộp"],
-      "correct": "nan"
+      "correct": "A"
     },
     {
       "question": "Đối với đấu thầu qua mạng, nhà thầu đã nộp E-HSDT nhưng sau đó E-HSMT của gói thầu này sửa đổi thì nhà thầu cần thực hiện theo phương án nào sau đây?",
