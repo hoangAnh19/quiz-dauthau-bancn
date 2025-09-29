@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>200 Câu hỏi trắc nghiệm ôn luyện đấu thầu</title>
+  <title>250 Câu hỏi trắc nghiệm ôn luyện đấu thầu</title>
   <link rel="stylesheet" href="style.css">
 
   <!-- Google tag (gtag.js) -->
@@ -15,13 +15,51 @@
     gtag('config', 'G-90FER2D78P');
   </script>
   <!-- End Google tag -->
+  <style>
+    .marquee-container {
+      /* Khung chứa (viewing area) */
+      width: 100%; /* Hoặc 50% nếu bạn muốn chạy ở giữa */
+      margin: 0;
+      overflow: hidden; /* Quan trọng: ẩn nội dung nằm ngoài khung */
+      white-space: nowrap;
+      box-sizing: border-box;
+      padding: 10px 0;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+  
+    .marquee-text {
+      /* Dòng chữ cần chạy */
+      display: inline-block;
+      /* Dùng animation để làm cho chữ chạy */
+      animation: marquee 20s linear infinite; 
+      font-size: 1.2em;
+      font-weight: bold;
+      color: rgb(189, 23, 51); 
+    }
+  
+    /* Định nghĩa hiệu ứng chạy lặp lại vô hạn */
+    @keyframes marquee {
+      /* Bắt đầu: Chữ nằm ngoài cùng bên phải của khung chứa */
+      from {
+        transform: translateX(70%); 
+      }
+      /* Kết thúc: Chữ di chuyển đến ngoài cùng bên trái của khung chứa */
+      to {
+        transform: translateX(-70%); 
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="app">
-    <h1>200 Câu hỏi trắc nghiệm ôn luyện đấu thầu</h1>
+    <h1>250 Câu hỏi trắc nghiệm ôn luyện đấu thầu</h1>
+    <div class="marquee-container">
+      <span class="marquee-text">Bổ sung 50 câu hỏi theo thông báo Cục quản lý đầu thầu - Bộ tài chính ngày 26/09/2025 (200 -> 250)</span>
+    </div>
     <a href="test.html" class="nav-link">👉 Làm bài Test 70 câu ngẫu nhiên</a>
     <h1 class="stats">
-      Đúng: <span id="correctCount">0</span> / <span id="totalCount">200</span>
+      Đúng: <span id="correctCount">0</span> / <span id="totalCount">250</span>
     </h1>
     <div class="quiz-container">
       <div id="quiz"></div>

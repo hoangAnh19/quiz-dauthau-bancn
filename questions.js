@@ -1998,5 +1998,530 @@ const questions = [
       "Tất cả các đáp án trên đều sai"
     ],
     "correct": "A"
-  }
+  },
+
+
+  
+    {
+      "question": "Mua sắm trực tuyến được áp dụng đối với gói thầu nào sau đây?",
+      "options": [
+        "Gói thầu mua sắm hàng hóa, dịch vụ thuộc dự toán mua sắm có giá gói thầu không quá 500 triệu đồng; gói thầu mua sắm hàng hóa, dịch vụ thuộc dự án có giá gói thầu không quá 01 tỷ đồng",
+        "Gói thầu xây lắp thuộc dự toán mua sắm có giá gói thầu không quá 01 tỷ đồng; gói thầu xây lắp thuộc dự án có giá gói thầu không quá 02 tỷ đồng",
+        "Gói thầu mua sắm hàng hóa, cung cấp dịch vụ phi tư vấn thuộc dự án có giá gói thầu không quá 05 tỷ đồng",
+        "Phương án B và C đều đúng"
+      ],
+      "correct": "A"
+    },
+    {
+      "question": "Đối với gói thầu áp dụng hình thức chào giá trực tuyến rút gọn, việc thẩm định kết quả lựa chọn nhà thầu được thực hiện như thế nào?",
+      "options": [
+        "Chỉ thẩm định nội dung về giá chào",
+        "Bắt buộc thẩm định khi người có thẩm quyền yêu cầu",
+        "Không phải thẩm định kết quả lựa chọn nhà thầu",
+        "Phương án A và B đều đúng"
+      ],
+      "correct": "C"
+    },
+    {
+      "question": "Khi đánh giá E-HSDT gói thầu xây lắp đấu thầu rộng rãi qua mạng, trường hợp có sự không thống nhất giữa thông tin về hợp đồng tương tự kê khai trên webform và file tài liệu chứng minh các thông tin về hợp đồng đó thì phương án nào sau đây là đúng?",
+      "options": [
+        "Đánh giá nhà thầu không đạt yêu cầu về hợp đồng tương tự",
+        "Yêu cầu nhà thầu làm rõ E-HSDT trên Hệ thống mạng đấu thầu quốc gia",
+        "Yêu cầu nhà thầu gửi bổ sung hợp đồng tương tự bằng bản giấy để đánh giá",
+        "Phương án B và C đều đúng"
+      ],
+      "correct": "B"
+    },
+    {
+      "question": "Trường hợp nào sau đây được coi là chào giá trực tuyến thành công?",
+      "options": [
+        "Nhà thầu nhập giá chào trên Hệ thống và nhấn nút 'Gửi' thành công trước thời điểm đóng thầu",
+        "Nhà thầu tải file báo giá lên Hệ thống và nhấn nút 'Gửi' thành công trước thời điểm đóng thầu",
+        "Nhà thầu gửi email báo giá trước thời điểm đóng thầu",
+        "Phương án A và B đều đúng"
+      ],
+      "correct": "D"
+    },
+    {
+      "question": "Khi nào được coi là HSDT đã được nộp thành công trên Hệ thống?",
+      "options": [
+        "Khi nhà thầu tải E-HSDT lên và Hệ thống hiển thị thông báo 'Gửi thành công'",
+        "Khi E-HSDT hiển thị trong mục 'Quản lý hồ sơ dự thầu' của nhà thầu",
+        "Khi có thông báo xác nhận từ Hệ thống gửi về email đã đăng ký của nhà thầu",
+        "Các phương án trên đều đúng"
+      ],
+      "correct": "D"
+    },
+    {
+      "question": "Nhà thầu có thể sửa đổi, rút E-HSDT trong trường hợp nào?",
+      "options": [
+        "Sau thời điểm đóng thầu",
+        "Trước thời điểm đóng thầu",
+        "Sau thời điểm mở thầu",
+        "Sau khi có kết quả lựa chọn nhà thầu"
+      ],
+      "correct": "B"
+    },
+    {
+      "question": "Trong đấu thầu qua mạng, để đảm bảo E-HSDT được mở đúng thời điểm, Hệ thống sử dụng:",
+      "options": [
+        "Giờ hệ thống của máy chủ",
+        "Giờ theo máy tính của người dùng",
+        "Giờ GMT+7 (giờ Việt Nam)",
+        "Giờ được nhà thầu lựa chọn"
+      ],
+      "correct": "A"
+    },
+    {
+      "question": "Thư giảm giá trong đấu thầu qua mạng được thực hiện như thế nào?",
+      "options": [
+        "Nhà thầu nộp thư giảm giá bản giấy trực tiếp cho bên mời thầu",
+        "Nhà thầu nộp thư giảm giá qua email cho bên mời thầu",
+        "Nhà thầu kê khai trực tiếp trên webform E-HSDT hoặc tải lên file thư giảm giá khi nộp E-HSDT",
+        "Nhà thầu gửi fax thư giảm giá cho bên mời thầu"
+      ],
+      "correct": "C"
+    },
+    {
+      "question": "Trong quá trình lựa chọn nhà thầu qua mạng, trường hợp nào sau đây bên mời thầu được phép yêu cầu nhà thầu bổ sung tài liệu bản giấy?",
+      "options": [
+        "Để làm rõ E-HSDT mà trên Hệ thống không thể hiện được",
+        "Để chứng minh tư cách hợp lệ của nhà thầu",
+        "Để chứng minh năng lực, kinh nghiệm của nhà thầu",
+        "Không được yêu cầu nhà thầu nộp tài liệu bản giấy trong bất kỳ trường hợp nào"
+      ],
+      "correct": "A"
+    },
+    {
+      "question": "Trường hợp nào sau đây là đúng khi E-HSDT có hiệu lực?",
+      "options": [
+        "Tính từ thời điểm nhà thầu nộp E-HSDT thành công trên Hệ thống",
+        "Tính từ thời điểm đóng thầu",
+        "Tính từ thời điểm mở thầu",
+        "Tính từ thời điểm bên mời thầu đánh giá E-HSDT"
+      ],
+      "correct": "B"
+    },
+  
+
+
+
+    
+      {
+        "question": "Trong đấu thầu qua mạng, nhà thầu được phép chỉnh sửa E-HSDT trong thời gian nào?",
+        "options": [
+          "Bất kỳ lúc nào",
+          "Trước thời điểm đóng thầu",
+          "Sau thời điểm mở thầu",
+          "Sau thời điểm đóng thầu nhưng trước khi có kết quả"
+        ],
+        "correct": "B"
+      },
+      {
+        "question": "Ai là người chịu trách nhiệm bảo mật thông tin đăng nhập của nhà thầu trên Hệ thống?",
+        "options": [
+          "Bên mời thầu",
+          "Nhà thầu",
+          "Cơ quan quản lý Hệ thống",
+          "Cả ba cùng chịu trách nhiệm"
+        ],
+        "correct": "B"
+      },
+      {
+        "question": "Trong đấu thầu qua mạng, kết quả lựa chọn nhà thầu được đăng tải ở đâu?",
+        "options": [
+          "Trang chủ Cổng thông tin đấu thầu quốc gia",
+          "Email gửi cho từng nhà thầu",
+          "Chỉ bên mời thầu biết",
+          "Trên trang web của nhà thầu trúng thầu"
+        ],
+        "correct": "A"
+      },
+      {
+        "question": "Nếu nhà thầu phát hiện lỗi trong E-HSDT sau khi đóng thầu, họ có thể:",
+        "options": [
+          "Sửa trực tiếp trên Hệ thống",
+          "Gửi văn bản điều chỉnh tới bên mời thầu",
+          "Không thể sửa, chỉ có thể rút HSDT trước đóng thầu",
+          "Cả A và B đều đúng"
+        ],
+        "correct": "C"
+      },
+      {
+        "question": "Trong đấu thầu qua mạng, hồ sơ mời thầu (E-HSMT) được phát hành dưới dạng nào?",
+        "options": [
+          "File điện tử trên Hệ thống mạng đấu thầu quốc gia",
+          "Bản giấy phát cho từng nhà thầu",
+          "Email gửi từng nhà thầu",
+          "Qua đường bưu điện"
+        ],
+        "correct": "A"
+      },
+      {
+        "question": "Khi mở thầu điện tử, Hệ thống thực hiện mở như thế nào?",
+        "options": [
+          "Tự động mở vào thời điểm đóng thầu",
+          "Bên mời thầu chủ động mở từng hồ sơ",
+          "Nhà thầu tự mở hồ sơ của mình",
+          "Do cơ quan quản lý Hệ thống mở"
+        ],
+        "correct": "A"
+      },
+      {
+        "question": "Trong đấu thầu qua mạng, nếu nhà thầu quên không đính kèm file tài liệu chứng minh năng lực thì:",
+        "options": [
+          "Hệ thống tự động loại nhà thầu",
+          "Bên mời thầu yêu cầu làm rõ qua Hệ thống",
+          "Nhà thầu có thể gửi bổ sung file qua email",
+          "Không thể khắc phục"
+        ],
+        "correct": "B"
+      },
+      {
+        "question": "Đối với đấu thầu rộng rãi qua mạng, trường hợp gói thầu có giá trị bảo đảm dự thầu nhỏ hơn 50 triệu đồng, thời gian có hiệu lực của thư bảo lãnh dự thầu hoặc giấy chứng nhận bảo hiểm bảo lãnh được quy định tại đâu?",
+        "options": [
+          "Trong E-HSMT",
+          "Trong thông báo mời đối chiếu tài liệu",
+          "Trong thông báo mời thương thảo hợp đồng",
+          "Các phương án trên đều sai"
+        ],
+        "correct": "A"
+      },
+      {
+        "question": "Trong trường hợp E-HSDT bị lỗi định dạng file không mở được, bên mời thầu xử lý như thế nào?",
+        "options": [
+          "Loại ngay nhà thầu",
+          "Yêu cầu nhà thầu nộp lại bản giấy",
+          "Yêu cầu nhà thầu làm rõ và gửi lại file qua Hệ thống",
+          "Bỏ qua phần lỗi"
+        ],
+        "correct": "C"
+      },
+      {
+        "question": "Nhà thầu tham dự đấu thầu qua mạng có thể liên hệ hỗ trợ kỹ thuật bằng cách nào?",
+        "options": [
+          "Qua tổng đài hỗ trợ đấu thầu quốc gia",
+          "Gửi email tới bộ phận hỗ trợ",
+          "Chat trực tuyến trên Hệ thống",
+          "Tất cả các phương án trên"
+        ],
+        "correct": "D"
+      },
+
+      
+        {
+          "question": "Khi nhà thầu tham dự thầu qua mạng, yếu tố nào sau đây giúp xác thực danh tính nhà thầu?",
+          "options": [
+            "Tên đăng nhập và mật khẩu",
+            "Chữ ký số",
+            "Mã OTP gửi qua email",
+            "Cả A và B đều đúng"
+          ],
+          "correct": "D"
+        },
+        {
+          "question": "Trong quá trình đấu thầu qua mạng, việc trao đổi thông tin giữa bên mời thầu và nhà thầu được thực hiện chủ yếu qua:",
+          "options": [
+            "Hệ thống mạng đấu thầu quốc gia",
+            "Điện thoại trực tiếp",
+            "Fax",
+            "Thư tay"
+          ],
+          "correct": "A"
+        },
+        {
+          "question": "Để đảm bảo tính pháp lý của E-HSDT, nhà thầu cần:",
+          "options": [
+            "Đính kèm giấy phép kinh doanh bản giấy",
+            "Đóng dấu và ký số đúng quy định",
+            "Gửi văn bản xác nhận bổ sung",
+            "Nộp bản giấy sau khi trúng thầu"
+          ],
+          "correct": "B"
+        },
+        {
+          "question": "Khi mở thầu điện tử, các thông tin nào được công khai ngay trên Hệ thống?",
+          "options": [
+            "Tên nhà thầu, giá dự thầu",
+            "Đánh giá kỹ thuật chi tiết",
+            "Điểm kỹ thuật của từng nhà thầu",
+            "Hồ sơ năng lực nhà thầu"
+          ],
+          "correct": "A"
+        },
+        {
+          "question": "Trong đấu thầu qua mạng, bên mời thầu có thể hủy thầu trong trường hợp nào?",
+          "options": [
+            "Có thay đổi lớn về phạm vi gói thầu",
+            "Tất cả E-HSDT không đạt yêu cầu",
+            "Có sự cố kỹ thuật nghiêm trọng",
+            "Tất cả các phương án trên"
+          ],
+          "correct": "D"
+        },
+        {
+          "question": "E-HSDT sau khi gửi thành công trên Hệ thống sẽ:",
+          "options": [
+            "Được mã hóa để bảo mật cho đến thời điểm mở thầu",
+            "Hiển thị công khai cho tất cả các nhà thầu",
+            "Chỉ bên mời thầu mới xem được",
+            "Bị xóa sau 24 giờ"
+          ],
+          "correct": "A"
+        },
+        {
+          "question": "Nhà thầu có thể kiểm tra trạng thái hồ sơ dự thầu của mình ở đâu?",
+          "options": [
+            "Trong mục 'Quản lý hồ sơ dự thầu' trên Hệ thống",
+            "Qua email thông báo",
+            "Qua đường bưu điện",
+            "Liên hệ trực tiếp bên mời thầu"
+          ],
+          "correct": "A"
+        },
+        {
+          "question": "Trường hợp nhà thầu cần thay đổi thông tin liên hệ (điện thoại, email) thì thực hiện ở đâu?",
+          "options": [
+            "Trong hồ sơ đăng ký nhà thầu trên Hệ thống",
+            "Gửi công văn cho bên mời thầu",
+            "Gửi email cho cơ quan quản lý đấu thầu",
+            "Không thể thay đổi sau khi đăng ký"
+          ],
+          "correct": "A"
+        },
+        {
+          "question": "Trong đấu thầu qua mạng, hợp đồng ký kết sau khi lựa chọn nhà thầu thường được thực hiện dưới hình thức:",
+          "options": [
+            "Ký điện tử thông qua Hệ thống",
+            "Ký bản giấy trực tiếp",
+            "Qua email xác nhận",
+            "Không cần ký, chỉ cần thông báo trúng thầu"
+          ],
+          "correct": "A"
+        },
+        {
+          "question": "Đối với gói thầu qua mạng, thời điểm đóng thầu được xác định theo:",
+          "options": [
+            "Giờ hệ thống máy chủ",
+            "Giờ bên mời thầu quy định",
+            "Giờ địa phương",
+            "Giờ nhà thầu lựa chọn"
+          ],
+          "correct": "A"
+        },
+      
+      
+    
+        
+          {
+            "question": "Khi bên mời thầu cần làm rõ E-HSDT, việc yêu cầu làm rõ được thực hiện như thế nào?",
+            "options": [
+              "Gửi văn bản giấy trực tiếp",
+              "Yêu cầu qua Hệ thống mạng đấu thầu quốc gia",
+              "Gửi email riêng cho nhà thầu",
+              "Gọi điện thoại trực tiếp"
+            ],
+            "correct": "B"
+          },
+          {
+            "question": "Trong đấu thầu qua mạng, bảo đảm dự thầu được thực hiện bằng cách nào?",
+            "options": [
+              "Chuyển khoản ngân hàng",
+              "Bảo lãnh điện tử",
+              "Giấy chứng nhận bảo hiểm bảo lãnh",
+              "Các phương án trên đều có thể"
+            ],
+            "correct": "D"
+          },
+          {
+            "question": "Thời gian đăng tải kết quả lựa chọn nhà thầu trên Hệ thống là:",
+            "options": [
+              "Ngay sau khi mở thầu",
+              "Trong thời hạn quy định của pháp luật đấu thầu",
+              "Bất kỳ lúc nào",
+              "Sau khi ký hợp đồng"
+            ],
+            "correct": "B"
+          },
+          {
+            "question": "Nhà thầu muốn nhận thông báo mời thầu phù hợp cần:",
+            "options": [
+              "Đăng ký lĩnh vực hoạt động và nhận thông báo qua Hệ thống",
+              "Gửi văn bản đề nghị tới bên mời thầu",
+              "Theo dõi thủ công trên Cổng thông tin",
+              "Không thể nhận tự động"
+            ],
+            "correct": "A"
+          },
+          {
+            "question": "Trong đấu thầu qua mạng, việc mở thầu kỹ thuật và mở thầu tài chính:",
+            "options": [
+              "Được thực hiện đồng thời",
+              "Được thực hiện theo quy định của E-HSMT",
+              "Không có sự tách bạch",
+              "Do nhà thầu quyết định"
+            ],
+            "correct": "B"
+          },
+          {
+            "question": "Khi tham gia đấu thầu qua mạng, chữ ký số của nhà thầu có vai trò:",
+            "options": [
+              "Xác nhận tính pháp lý và cam kết của nhà thầu",
+              "Mã hóa dữ liệu",
+              "Gửi thông báo tự động",
+              "Không có vai trò gì"
+            ],
+            "correct": "A"
+          },
+          {
+            "question": "Bên mời thầu có thể gia hạn thời điểm đóng thầu qua mạng bằng cách:",
+            "options": [
+              "Sửa đổi E-HSMT trên Hệ thống",
+              "Gửi email thông báo cho nhà thầu",
+              "Cập nhật trên trang chủ cơ quan",
+              "Không thể gia hạn"
+            ],
+            "correct": "A"
+          },
+          {
+            "question": "Nhà thầu có thể nộp nhiều E-HSDT cho cùng một gói thầu không?",
+            "options": [
+              "Có, miễn là trước thời điểm đóng thầu",
+              "Không, chỉ được nộp 1 E-HSDT",
+              "Có, sau thời điểm đóng thầu",
+              "Tùy bên mời thầu cho phép"
+            ],
+            "correct": "B"
+          },
+          {
+            "question": "Khi đánh giá E-HSDT, bên mời thầu sử dụng thông tin nào là chính?",
+            "options": [
+              "Thông tin kê khai trên webform",
+              "Thông tin trong file đính kèm",
+              "Thông tin bản giấy bổ sung",
+              "Cả A và B đều được"
+            ],
+            "correct": "A"
+          },
+          {
+            "question": "Nhà thầu không thực hiện nộp bảo đảm dự thầu theo quy định thì:",
+            "options": [
+              "Bị loại E-HSDT",
+              "Được phép nộp bổ sung sau đóng thầu",
+              "Bị phạt tiền",
+              "Vẫn được xem xét nếu có lý do"
+            ],
+            "correct": "A"
+          },
+
+
+          
+            {
+              "question": "Khi thực hiện đấu thầu qua mạng, nhà thầu cần chuẩn bị hạ tầng gì để đảm bảo nộp hồ sơ thành công?",
+              "options": [
+                "Máy tính có kết nối internet ổn định",
+                "Chữ ký số còn hiệu lực",
+                "Phần mềm đọc file và nén file",
+                "Tất cả các phương án trên"
+              ],
+              "correct": "D"
+            },
+            {
+              "question": "Nếu nhà thầu gặp sự cố kỹ thuật khi nộp E-HSDT, nên:",
+              "options": [
+                "Gửi văn bản khiếu nại ngay",
+                "Liên hệ tổng đài hỗ trợ để ghi nhận sự cố",
+                "Nộp hồ sơ bản giấy thay thế",
+                "Chờ Hệ thống khắc phục"
+              ],
+              "correct": "B"
+            },
+            {
+              "question": "Trong đấu thầu qua mạng, việc lưu trữ dữ liệu E-HSDT được thực hiện bởi:",
+              "options": [
+                "Nhà thầu tự lưu",
+                "Bên mời thầu",
+                "Hệ thống mạng đấu thầu quốc gia",
+                "Cơ quan quản lý dự án"
+              ],
+              "correct": "C"
+            },
+            {
+              "question": "Khi nào nhà thầu được hoàn trả bảo đảm dự thầu trong đấu thầu qua mạng?",
+              "options": [
+                "Sau khi có kết quả lựa chọn nhà thầu",
+                "Sau khi ký hợp đồng",
+                "Sau khi nhà thầu nộp E-HSDT",
+                "Sau khi nhà thầu trúng thầu"
+              ],
+              "correct": "A"
+            },
+            {
+              "question": "Trong đấu thầu qua mạng, thông tin hồ sơ của nhà thầu được bảo mật cho đến:",
+              "options": [
+                "Khi đóng thầu",
+                "Khi mở thầu",
+                "Khi ký hợp đồng",
+                "Khi công bố kết quả"
+              ],
+              "correct": "B"
+            },
+            {
+              "question": "Nếu E-HSDT bị thiếu một số biểu mẫu không bắt buộc, bên mời thầu sẽ:",
+              "options": [
+                "Loại nhà thầu",
+                "Yêu cầu bổ sung qua Hệ thống",
+                "Cho điểm trừ",
+                "Bỏ qua không xem xét"
+              ],
+              "correct": "B"
+            },
+            {
+              "question": "Bên mời thầu phải đăng tải kế hoạch lựa chọn nhà thầu lên Hệ thống trong thời hạn:",
+              "options": [
+                "Trước khi phát hành E-HSMT",
+                "Sau khi phát hành E-HSMT",
+                "Sau khi mở thầu",
+                "Bất kỳ lúc nào"
+              ],
+              "correct": "A"
+            },
+            {
+              "question": "Trong đấu thầu qua mạng, ai chịu trách nhiệm về tính chính xác của thông tin E-HSDT?",
+              "options": [
+                "Bên mời thầu",
+                "Nhà thầu",
+                "Cơ quan quản lý Hệ thống",
+                "Cả ba cùng chịu trách nhiệm"
+              ],
+              "correct": "B"
+            },
+            {
+              "question": "Đối với gói thầu qua mạng, khi có khiếu nại của nhà thầu, họ gửi tới:",
+              "options": [
+                "Cơ quan quản lý Hệ thống",
+                "Bên mời thầu",
+                "Cơ quan thanh tra",
+                "Bộ Kế hoạch và Đầu tư"
+              ],
+              "correct": "B"
+            },
+            {
+              "question": "Trong đấu thầu qua mạng, E-HSMT có thể được sửa đổi không?",
+              "options": [
+                "Có, trước thời điểm đóng thầu",
+                "Không, sau khi phát hành là cố định",
+                "Có, sau thời điểm đóng thầu",
+                "Tùy nhà thầu đề xuất"
+              ],
+              "correct": "A"
+            }
+          
+          
+        
+                
+
+
+  
+
 ];
