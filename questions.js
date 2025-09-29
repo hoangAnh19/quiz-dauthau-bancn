@@ -2055,7 +2055,7 @@ const questions = [
     },
     {
       "question": "Trường hợp E-HSMT không đầy đủ thông tin (thiếu thiết kế, bản vẽ và các tài liệu khác) hoặc thông tin không rõ ràng, gây khó khăn cho nhà thầu trong việc chuẩn bị E-HSDT thì chủ đầu tư phải làm gì?",
-      "options": ["sửa đổi, bổ sung E-HSMT cho phù hợp và tiến hành đăng tải lại E- HSMT", "hiện bổ sung, hoàn thiện cho phù hợp và sửa đổi trên Hệ thống", "kèm thêm các thành phần còn thiếu của E-HSMT trên Hệ thống", "thầu"],
+      "options": ["Phải sửa đổi, bổ sung E-HSMT cho phù hợp và tiến hành đăng tải lại E- HSMT", "Thực hiện bổ sung, hoàn thiện cho phù hợp và sửa đổi trên Hệ thống", "Đính kèm thêm các thành phần còn thiếu của E-HSMT trên Hệ thống", "Huỷ thầu"],
       "correct": "A"
     },
     {
@@ -2070,7 +2070,7 @@ const questions = [
     },
     {
       "question": "Gói thầu hàng hóa có giá gói thầu 02 tỷ đồng thực hiện chào giá trực tuyến theo quy trình rút gọn, trường hợp chủ đầu tư đăng tải thông báo mời thầu vào 11h00 ngày Thứ 2 (08/9/2025), thời điểm nào sau đây là thời điểm kết thúc chào giá trực tuyến sớm nhất?",
-      "options": ["ngày thứ 6 (12/9/2025)", "ngày thứ 3 (16/9/2025)", "ngày thứ 3 (16/9/2025)", "ngày thứ 4 (17/9/2025)"],
+      "options": ["11h00 ngày thứ 6 (12/9/2025)", "8h00 ngày thứ 3 (16/9/2025)", "11h00 ngày thứ 3 (16/9/2025)", "8h00 ngày thứ 4 (17/9/2025)"],
       "correct": "D"
     },
     {
@@ -2080,7 +2080,7 @@ const questions = [
     },
     {
       "question": "Đối với đấu thầu qua mạng, gói thầu mua sắm hàng hóa, dịch vụ phi tư vấn có giá gói thầu không quá 10 tỷ đồng. Trường hợp tại thời điểm đóng thầu không có nhà thầu tham dự thầu, chủ đầu tư quyết định xử lý tình huống theo cách gia hạn thời điểm đóng thầu thì thời gian gia hạn tối thiểu là bao nhiêu ngày?",
-      "options": ["ngày làm việc", "ngày", "ngày", "ngày làm việc"],
+      "options": ["05 ngày làm việc", "05 ngày", "03 ngày", "03 ngày làm việc"],
       "correct": "A"
     },
     {
@@ -2095,7 +2095,7 @@ const questions = [
     },
     {
       "question": "Gói thầu hàng hóa có giá gói thầu 01 tỷ đồng thực hiện chào giá trực tuyến theo quy trình rút gọn, trường hợp chủ đầu tư đăng tải thông báo mời thầu vào 11h00 ngày Thứ 2 (08/9/2025), thời điểm nào sau đây là thời điểm kết thúc chào giá trực tuyến sớm nhất?",
-      "options": ["ngày thứ 6 (12/9/2025)", "ngày thứ bẩy (13/9/2025)", "ngày thứ 6 (12/9/2025)", "ngày thứ 2 (15/9/2025)"],
+      "options": ["8h00 ngày thứ 6 (12/9/2025)", "8h00 ngày thứ bẩy (13/9/2025)", "11h00 ngày thứ 6 (12/9/2025)", "8h00 ngày thứ 2 (15/9/2025)"],
       "correct": "C"
     },
     {
