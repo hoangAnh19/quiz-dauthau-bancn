@@ -2096,7 +2096,7 @@ const questions = [
     {
       "question": "Gói thầu hàng hóa có giá gói thầu 01 tỷ đồng thực hiện chào giá trực tuyến theo quy trình rút gọn, trường hợp chủ đầu tư đăng tải thông báo mời thầu vào 11h00 ngày Thứ 2 (08/9/2025), thời điểm nào sau đây là thời điểm kết thúc chào giá trực tuyến sớm nhất?",
       "options": ["8h00 ngày thứ 6 (12/9/2025)", "8h00 ngày thứ bẩy (13/9/2025)", "11h00 ngày thứ 6 (12/9/2025)", "8h00 ngày thứ 2 (15/9/2025)"],
-      "correct": "C"
+      "correct": "D"
     },
     {
       "question": "Đối với đấu thầu rộng rãi qua mạng, trường hợp gói thầu có giá trị bảo đảm dự thầu nhỏ hơn 50 triệu đồng, thời gian có hiệu lực của thư bảo lãnh dự thầu hoặc giấy chứng nhận bảo hiểm bảo lãnh được quy định tại đâu?",
