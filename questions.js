@@ -2358,7 +2358,7 @@ const questions = [
       "Đơn vị sự nghiệp công lập A tham gia gói thầu do đơn vị sự nghiệp công lập B là chủ đầu tư và cả hai đơn vị đều là đơn vị sự nghiệp do Sở Tài chính tỉnh X trực tiếp quản lý",
       "Doanh nghiệp C tham gia gói thầu có sử dụng vốn ngân sách nhà nước do đơn vị sự nghiệp công lập A là chủ đầu tư. Đơn vị sự nghiệp công lập A và Doanh nghiệp C đều là đơn vị do Sở X trực tiếp quản lý"
     ],
-    "correct": "C"
+    "correct": "D"
   },
   {
     "question": "Đối với các gói thầu đã thanh lý hợp đồng, khi lập Tờ trình Kế hoạch lựa chọn nhà thầu, giá trị phần công việc đã thực hiện của các gói thầu này được tính như thế nào?",
