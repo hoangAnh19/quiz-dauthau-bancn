@@ -617,7 +617,7 @@ const questions = [
         "Đánh giá đối với tất cả các nhà thầu được đánh giá đạt về kỹ thuật",
         "Không đánh giá về nhân sự chủ chốt và thiết bị chủ yếu"
       ],
-      "correct": "A"
+      "correct": "B"
     },
     {
       "question": "Đối với gói thầu mua sắm hàng hóa áp dụng hình thức chào hàng cạnh tranh, trường hợp hồ sơ mời thầu không yêu cầu về năng lực, kinh nghiệm thì việc đánh giá được thực hiện như thế nào?",
@@ -657,7 +657,7 @@ const questions = [
         "Phải bắt buộc cung cấp giấy đăng ký thiết bị kèm theo giấy đăng kiểm, kiểm định theo quy định của pháp luật",
         "Phải bắt buộc cung cấp hợp đồng, hóa đơn mua hàng"
       ],
-      "correct": "A"
+      "correct": "B"
     },
     {
       "question": "Danh sách xếp hạng nhà thầu có phải thẩm định trước khi phê duyệt hay không?",
@@ -677,7 +677,7 @@ const questions = [
         "Báo cáo người có thẩm quyền xem xét, quyết định",
         "Phương án A và C đều đúng"
       ],
-      "correct": "B"
+      "correct": "A"
     },
     {
       "question": "Đối với gói thầu xây lắp, trường hợp công ty mẹ tham dự thầu và huy động công ty con tham gia thực hiện gói thầu thì việc đánh giá kinh nghiệm thực hiện hợp đồng tương tự được thực hiện như thế nào?",
@@ -717,7 +717,7 @@ const questions = [
         "Việc đánh giá về doanh thu căn cứ trên phần có giá trị lớn nhất trong tổng số các phần nhà thầu tham dự",
         "Các phương án trên đều sai"
       ],
-      "correct": "B"
+      "correct": "A"
     },
     {
       "question": "Gói thầu mua sắm hàng hóa chia thành nhiều phần thì việc đánh giá về quy mô hợp đồng tương tự đối với nhà thầu tham dự nhiều phần được thực hiện như thế nào?",
@@ -767,7 +767,7 @@ const questions = [
         "Được ủy quyền không cần giấy ủy quyền nhưng nhà thầu phải tạo tài khoản nghiệp vụ cho giám đốc chi nhánh",
         "Các phương án trên đều sai"
       ],
-      "correct": "A"
+      "correct": "C"
     },
     {
       "question": "Hợp đồng theo theo tỷ lệ phần trăm có thể được áp dụng đối với gói thầu  nào sau đây?",
@@ -1207,7 +1207,7 @@ const questions = [
         "Nhà thầu rút đơn kiến nghị trong quá trình giải quyết kiến nghị",
         "Phương án B và C đều đúng"
       ],
-      "correct": "B"
+      "correct": "D"
     },
     {
       "question": "Đối với kiến nghị về kết quả lựa chọn nhà thầu, Hội đồng giải quyết kiến nghị phải có văn bản giải quyết kiến nghị trong thời hạn bao nhiêu ngày kể từ ngày Hội đồng được thành lập?",
@@ -1697,7 +1697,7 @@ const questions = [
         "Cho phép gia hạn thời điểm đóng thầu tối thiểu 05 ngày đối với gói thầu xây lắp, hỗn hợp có giá gói thầu không quá 20 tỷ đồng, gói thầu mua sắm hàng hoá, dịch vụ phi tư vấn có giá không quá 10 tỷ đồng",
         "Phương án A và C đều đúng"
       ],
-      "correct": "D"
+      "correct": "A"
     },
     {
       "question": "Khi đánh giá E-HSDT gói thầu xây lắp đấu thầu rộng rãi qua mạng, trường hợp có sự không thống nhất giữa thông tin về hợp đồng tương tự kê khai trên webform và file tài liệu chứng minh các thông tin về hợp đồng đó thì xử lý như nào?",
@@ -1817,7 +1817,7 @@ const questions = [
         "Khóa chức năng chào giá trực tuyến trong thời hạn 06 tháng kể từ ngày chủ đầu tư công khai tên nhà thầu trên Hệ thống mạng đấu thầu quốc gia",
         "Bị đánh giá về uy tín trong việc tham dự thầu"
       ],
-      "correct": "C"
+      "correct": "B"
     },
     {
       "question": "Chào giá trực tuyến theo quy trình thông thường áp dụng đối với gói thầu nào sau đây?",
@@ -1837,7 +1837,7 @@ const questions = [
         "Chào giá trực tuyến theo quy trình rút gọn",
         "Các phương án trên đều đúng"
       ],
-      "correct": "D"
+      "correct": "C"
     },
     {
       "question": "Đối với chào giá trực tuyến rút gọn, kể từ lượt chào giá thứ hai, giá chào của nhà thầu không được thấp hơn giá thấp nhất hiển thị trên Hệ thống mạng đấu thầu quốc gia là bao nhiêu %?",
@@ -2021,7 +2021,7 @@ const questions = [
     {
       "question": "Đối với đấu thầu qua mạng, chức năng trả lời làm rõ E-HSDT trên Hệ thống mạng đấu thầu quốc gia được thực hiện bao nhiêu lần đối với mỗi yêu cầu làm rõ?",
       "options": ["01 lần", "02 lần", "03 lần", "Không giới hạn số lần"],
-      "correct": "A"
+      "correct": "D"
     },
     {
       "question": "Đối với đấu thầu qua mạng, nhà thầu liên danh nộp bảo đảm dự thầu theo thể thức nào sau đây?",
@@ -2126,7 +2126,7 @@ const questions = [
     {
       "question": "Trường hợp tổ chức lựa chọn nhà thầu đối với gói thầu mua sắm hàng hóa thuộc phạm vi điều chỉnh của Hiệp định UKVFTA tại thời điểm tháng 9/2025, cơ quan mua sắm lập hồ sơ mời thầu theo Mẫu hồ sơ mời thầu ban hành kèm theo Thông tư nào?",
       "options": ["Thông tư số 09/2020/TT-BKHĐT", "Thông tư số 12/2022/TT-BKHĐT", "Thông tư số 15/2022/TT-BKHĐT", "Thông tư số 20/2022/TT-BKHĐT"],
-      "correct": "C"
+      "correct": "B"
     },
     {
       "question": "Việc đấu thầu thuốc theo quy định của Hiệp định thương mại tự do giữa Cộng hòa xã hội chủ nghĩa Việt Nam và Liên minh Châu Âu (EVFTA) được Chính phủ giao cơ quan, tổ chức nào hướng dẫn?",
@@ -2206,7 +2206,7 @@ const questions = [
     {
       "question": "Trung tâm X là đơn vị sự nghiệp công lập tự chủ chi thường xuyên thuộc tỉnh A tổ chức lựa chọn nhà thầu đối với gói thầu mua sắm hàng hóa sử dụng nguồn thu hợp pháp (không sử dụng ngân sách nhà nước), trường hợp nhà thầu có kiến nghị về hồ sơ mời thầu gửi cả người có thẩm quyền và chủ đầu tư của gói thầu thì việc giải quyết kiến nghị được thực hiện theo quy trình nào?",
       "options": ["Trong thời hạn 07 ngày làm việc kể từ ngày nhận được đơn kiến nghị của nhà thầu, chủ đầu tư phải có văn bản giải quyết kiến nghị gửi đến nhà thầu, cơ quan, tổ chức và đăng tải trên Hệ thống mạng đấu thầu quốc gia.", "Người có thẩm quyền phải có văn bản giải quyết kiến nghị gửi đến nhà thầu, cơ quan, tổ chức trong thời hạn 07 ngày làm việc kể từ ngày nhận được đơn kiến nghị của nhà thầu và gửi đến chủ đầu tư để đăng tải trên Hệ thống mạng đấu thầu quốc gia.", "Thực hiện theo quy trình về giải quyết kiến nghị do người đứng đầu Trung tâm X ban hành trong đơn vị mình.", "Phương án A và B đều đúng"],
-      "correct": "A"
+      "correct": "C"
     },
     {
       "question": "Ông A là người đại diện hợp pháp của nhà thầu B ký đơn kiến nghị về kết quả lựa chọn nhà thầu. Trong trường hợp này, anh C là con đẻ của ông A có được tham gia là thành viên Hội đồng giải quyết kiến nghị hay không?",
@@ -2246,7 +2246,7 @@ const questions = [
     {
       "question": "Nhà thầu liên danh A-B gồm 2 thành viên là nhà thầu A và nhà thầu B. Nhà thầu A dàn xếp, thỏa thuận với các bên rút hồ sơ dự thầu để liên danh A-B trúng thầu sẽ bị xử lý như thế nào?",
       "options": ["Thành viên liên danh A bị cấm tham gia hoạt động đấu thầu từ 03 năm đến 05 năm", "Tất cả thành viên trong liên danh A-B bị cấm tham gia hoạt động đấu thầu từ 03 năm đến 05 năm", "Thành viên liên danh A bị cấm tham gia hoạt động đấu thầu từ 01 năm đến 03 năm", "Tất cả thành viên trong liên danh A-B bị cấm tham gia hoạt động đấu thầu từ 01 năm đến 03 năm"],
-      "correct": "C"
+      "correct": "B"
     },
 
 //20 câu từ 250 > 270
@@ -2268,7 +2268,7 @@ const questions = [
       "Không bị nhiễm virus, không bị lỗi, hỏng và không thiết lập mật khẩu",
       "Các phương án trên đều đúng"
     ],
-    "correct": "D"
+    "correct": "C"
   },
   {
     "question": "Đối với đấu thầu qua mạng, trường hợp file đính kèm trong E- HSMT không thể mở hoặc không đọc được thì chủ đầu tư phải thực hiện hành động nào sau đây?",
@@ -2358,7 +2358,7 @@ const questions = [
       "Đơn vị sự nghiệp công lập A tham gia gói thầu do đơn vị sự nghiệp công lập B là chủ đầu tư và cả hai đơn vị đều là đơn vị sự nghiệp do Sở Tài chính tỉnh X trực tiếp quản lý",
       "Doanh nghiệp C tham gia gói thầu có sử dụng vốn ngân sách nhà nước do đơn vị sự nghiệp công lập A là chủ đầu tư. Đơn vị sự nghiệp công lập A và Doanh nghiệp C đều là đơn vị do Sở X trực tiếp quản lý"
     ],
-    "correct": "D"
+    "correct": "B"
   },
   {
     "question": "Đối với các gói thầu đã thanh lý hợp đồng, khi lập Tờ trình Kế hoạch lựa chọn nhà thầu, giá trị phần công việc đã thực hiện của các gói thầu này được tính như thế nào?",
@@ -2378,7 +2378,7 @@ const questions = [
       "Bị đưa vào xem xét, đánh giá về kỹ thuật trong quá trình lựa chọn nhà thầu đối với gói thầu xây lắp, phi tư vấn, hàng hóa, hỗn hợp",
       "Đáp án B và C đều đúng"
     ],
-    "correct": "D"
+    "correct": "B"
   },
   {
     "question": "Nội dung nào không phù hợp với quy định về nhà thầu phụ đối với gói thầu mua sắm hàng hóa?",
@@ -2408,7 +2408,7 @@ const questions = [
       "Nhà thầu C được xét duyệt trúng thầu",
       "Nhà thầu D được xét duyệt trúng thầu"
     ],
-    "correct": "A"
+    "correct": "B"
   },
   {
     "question": "Trong lễ mở thầu đối với gói thầu đấu thầu quốc tế không qua mạng, chủ đầu tư xử lý như thế nào khi nhà thầu đề nghị bổ sung thư giảm giá do bị thất lạc trong quá trình nộp hồ sơ dự thầu theo đường bưu điện?",
@@ -2448,7 +2448,7 @@ const questions = [
       "Bảo đảm dự thầu của nhà thầu A được đánh giá là hợp lệ; Bảo đảm dự thầu của nhà thầu B được đánh giá là không hợp lệ",
       "Bảo đảm dự thầu của nhà thầu A và nhà thầu B đều được đánh giá là không hợp lệ"
     ],
-    "correct": "C"
+    "correct": "B"
   }
 
 
