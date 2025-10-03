@@ -5,6 +5,8 @@ let currentIndex = 0;
 let correctCount = 0;
 document.getElementById("totalCount").innerText = questions.length;
 
+const flaggedQuestions = window.flaggedQuestionIndices || new Set();
+
 // ==== Khôi phục trạng thái từ localStorage ====
 let savedAnswers = JSON.parse(localStorage.getItem("indexAnswers") || "null");
 let savedCorrect = parseInt(localStorage.getItem("indexCorrectCount") || "0");
@@ -51,6 +53,9 @@ function renderQuestion(index) {
   quizContainer.innerHTML = "";
   const div = document.createElement("div");
   div.className = "question";
+  if (flaggedQuestions.has(index)) {
+    div.classList.add("flagged-question");
+  }
   div.innerHTML = `<h3>Câu ${index + 1}: ${q.question}</h3>`;
 
   ["A","B","C","D"].forEach((opt, i) => {
@@ -153,6 +158,9 @@ questions.forEach((q, index) => {
   const link = document.createElement("div");
   link.id = `q${index}`;
   link.className = "sidebar-item";
+  if (flaggedQuestions.has(index)) {
+    link.classList.add("flagged-item");
+  }
   link.innerText = index + 1;
   link.onclick = () => renderQuestion(index);
   questionList.appendChild(link);

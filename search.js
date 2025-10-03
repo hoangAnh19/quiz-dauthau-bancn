@@ -1,8 +1,9 @@
-﻿const searchInput = document.getElementById("searchInput");
+const searchInput = document.getElementById("searchInput");
 const clearButton = document.getElementById("clearSearch");
 const resultsContainer = document.getElementById("results");
 const infoLine = document.getElementById("resultsInfo");
 const optionLabels = ["A", "B", "C", "D"];
+const flaggedQuestions = window.flaggedQuestionIndices || new Set();
 
 function normalizeText(value) {
   if (!value) {
@@ -48,6 +49,9 @@ function renderResults(matches) {
   matches.forEach(({ question, index }) => {
     const card = document.createElement("div");
     card.className = "result-card";
+    if (flaggedQuestions.has(index)) {
+      card.classList.add("flagged-question");
+    }
 
     const heading = document.createElement("h3");
     heading.textContent = `Cau ${index + 1}: ${question.question}`;
