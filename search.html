@@ -2,21 +2,31 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Tra cuu cau hoi va dap an</title>
+  <title>Tra cứu câu hỏi và đáp án</title>
   <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-90FER2D78P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-90FER2D78P');
+  </script>
 </head>
 <body>
   <div id="app">
-    <h1>Tra cuu cau hoi va dap an</h1>
+    <h1>Tra cứu câu hỏi và đáp án</h1>
     <div class="nav-links">
-      <a href="index.html" class="nav-link">Quay lai danh sach 270 cau</a>
-      <a href="test.html" class="nav-link">Lam bai test 70 cau</a>
+      <a href="index.html" class="nav-link">Quay lại danh sách 270 câu</a>
+      <a href="test.html" class="nav-link">Làm bài test 70 câu</a>
     </div>
     <div class="search-container">
-      <input type="text" id="searchInput" placeholder="Nhap tu khoa tim kiem...">
-      <button id="clearSearch">Xoa</button>
+      <input type="text" id="searchInput" placeholder="Nhập từ khoá tìm kiếm...">
+      <button id="clearSearch">Xoá</button>
     </div>
-    <p id="resultsInfo" class="results-info">Nhap tu khoa de bat dau tim kiem.</p>
+    <p id="resultsInfo" class="results-info">Nhập từ khoá để bắt đầu tìm kiếm.</p>
     <div id="results"></div>
   </div>
   <script src="questions.js"></script>

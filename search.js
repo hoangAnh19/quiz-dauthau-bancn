@@ -1,4 +1,4 @@
-const searchInput = document.getElementById("searchInput");
+﻿const searchInput = document.getElementById("searchInput");
 const clearButton = document.getElementById("clearSearch");
 const resultsContainer = document.getElementById("results");
 const infoLine = document.getElementById("resultsInfo");
@@ -13,12 +13,129 @@ function normalizeText(value) {
     .toString()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/gi, "d")
     .toLowerCase();
 }
 
-function searchQuestions(term) {
-  const needle = normalizeText(term.trim());
-  if (!needle) {
+function buildNormalizedIndex(text) {
+  const normalizedChars = [];
+  const indexMap = [];
+
+  for (let i = 0; i < text.length;) {
+    const codePoint = text.codePointAt(i);
+    const char = String.fromCodePoint(codePoint);
+    const normalizedChar = normalizeText(char);
+    const charLength = char.length;
+
+    if (normalizedChar) {
+      for (const unit of Array.from(normalizedChar)) {
+        normalizedChars.push(unit);
+        indexMap.push({ start: i, end: i + charLength });
+      }
+    }
+
+    i += charLength;
+  }
+
+  return {
+    normalized: normalizedChars.join(""),
+    map: indexMap
+  };
+}
+
+function mergeRanges(ranges) {
+  if (!ranges.length) {
+    return [];
+  }
+
+  ranges.sort((a, b) => a.start - b.start);
+  const merged = [Object.assign({}, ranges[0])];
+
+  for (let i = 1; i < ranges.length; i++) {
+    const current = ranges[i];
+    const last = merged[merged.length - 1];
+
+    if (current.start <= last.end) {
+      last.end = Math.max(last.end, current.end);
+    } else {
+      merged.push(Object.assign({}, current));
+    }
+  }
+
+  return merged;
+}
+
+function findMatchRangesInText(text, normalizedNeedle) {
+  if (!normalizedNeedle) {
+    return [];
+  }
+
+  const { normalized, map } = buildNormalizedIndex(text);
+  const ranges = [];
+  const targetLength = normalizedNeedle.length;
+  let searchFrom = 0;
+
+  while (searchFrom <= normalized.length - targetLength) {
+    const foundIndex = normalized.indexOf(normalizedNeedle, searchFrom);
+    if (foundIndex === -1) {
+      break;
+    }
+
+    const startEntry = map[foundIndex];
+    const endEntry = map[foundIndex + targetLength - 1];
+
+    if (startEntry && endEntry) {
+      ranges.push({ start: startEntry.start, end: endEntry.end });
+    }
+
+    searchFrom = foundIndex + targetLength;
+  }
+
+  return mergeRanges(ranges);
+}
+
+function createHighlightFragment(text, normalizedNeedle) {
+  const fragment = document.createDocumentFragment();
+
+  if (!normalizedNeedle) {
+    fragment.appendChild(document.createTextNode(text));
+    return fragment;
+  }
+
+  const ranges = findMatchRangesInText(text, normalizedNeedle);
+  if (!ranges.length) {
+    fragment.appendChild(document.createTextNode(text));
+    return fragment;
+  }
+
+  let cursor = 0;
+  ranges.forEach(({ start, end }) => {
+    if (start > cursor) {
+      fragment.appendChild(document.createTextNode(text.slice(cursor, start)));
+    }
+
+    const mark = document.createElement("mark");
+    mark.className = "search-highlight";
+    mark.textContent = text.slice(start, end);
+    fragment.appendChild(mark);
+
+    cursor = end;
+  });
+
+  if (cursor < text.length) {
+    fragment.appendChild(document.createTextNode(text.slice(cursor)));
+  }
+
+  return fragment;
+}
+
+function appendHighlightedText(element, text, normalizedNeedle) {
+  element.textContent = "";
+  element.appendChild(createHighlightFragment(text, normalizedNeedle));
+}
+
+function searchQuestions(normalizedNeedle) {
+  if (!normalizedNeedle) {
     return [];
   }
 
@@ -30,13 +147,13 @@ function searchQuestions(term) {
         searchableParts.push(question.options[correctIndex]);
       }
 
-      const isMatch = searchableParts.some(part => normalizeText(part).includes(needle));
+      const isMatch = searchableParts.some(part => normalizeText(part).includes(normalizedNeedle));
       return isMatch ? { question, index } : null;
     })
     .filter(Boolean);
 }
 
-function renderResults(matches) {
+function renderResults(matches, normalizedNeedle) {
   resultsContainer.innerHTML = "";
 
   if (matches.length === 0) {
@@ -54,7 +171,7 @@ function renderResults(matches) {
     }
 
     const heading = document.createElement("h3");
-    heading.textContent = `Cau ${index + 1}: ${question.question}`;
+    appendHighlightedText(heading, `Cau ${index + 1}: ${question.question}`, normalizedNeedle);
     card.appendChild(heading);
 
     const list = document.createElement("ul");
@@ -64,7 +181,7 @@ function renderResults(matches) {
       const label = optionLabels[optionIndex];
       const item = document.createElement("li");
       item.className = "answer-item";
-      item.textContent = `${label}: ${optionText}`;
+      appendHighlightedText(item, `${label}: ${optionText}`, normalizedNeedle);
 
       if (label === question.correct) {
         item.classList.add("correct-answer");
@@ -80,20 +197,29 @@ function renderResults(matches) {
 
 function handleSearch() {
   const term = searchInput.value;
-  if (!term.trim()) {
+  const trimmedTerm = term.trim();
+
+  if (!trimmedTerm) {
     resultsContainer.innerHTML = "";
     infoLine.textContent = "Nhap tu khoa de bat dau tim kiem.";
     return;
   }
 
-  if (term.trim().length < 2) {
+  if (trimmedTerm.length < 2) {
     resultsContainer.innerHTML = "";
     infoLine.textContent = "Nhap it nhat 2 ky tu.";
     return;
   }
 
-  const matches = searchQuestions(term);
-  renderResults(matches);
+  const normalizedNeedle = normalizeText(trimmedTerm);
+  if (!normalizedNeedle) {
+    resultsContainer.innerHTML = "";
+    infoLine.textContent = "Ky tu tim kiem khong hop le.";
+    return;
+  }
+
+  const matches = searchQuestions(normalizedNeedle);
+  renderResults(matches, normalizedNeedle);
 }
 
 searchInput.addEventListener("input", handleSearch);
