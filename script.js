@@ -21,7 +21,7 @@ document.getElementById("correctCount").innerText = correctCount;
 
 // ==== Tạo nút Làm lại 200 câu ====
 const resetBtn = document.createElement("button");
-resetBtn.innerText = "🔄 Làm lại 270 câu";
+resetBtn.innerText = "🔄 Làm lại 340 câu";
 resetBtn.style.marginLeft = "10px";
 resetBtn.onclick = () => {
   // Xóa dữ liệu localStorage liên quan index
@@ -41,7 +41,7 @@ resetBtn.onclick = () => {
   // Render lại từ câu đầu tiên
   renderQuestion(0);
 
-  alert("Đã làm mới 270 câu, bạn có thể bắt đầu lại từ đầu!");
+  alert("Đã làm mới 340 câu, bạn có thể bắt đầu lại từ đầu!");
 };
 
 // Gắn nút ngay cạnh h1.stats
@@ -140,6 +140,7 @@ function renderQuestion(index) {
     // lưu lại trạng thái showAnswer
     localStorage.setItem("indexAnswers", JSON.stringify(answers));
   };
+  
   navDiv.appendChild(showBtn);
 
   div.appendChild(navDiv);

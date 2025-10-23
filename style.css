@@ -32,8 +32,14 @@ body {
     display: flex;
   }
   
-  #quiz {
+  .quiz-main {
     flex: 3;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #quiz {
+    margin-bottom: 24px;
   }
   
   .question {
@@ -260,4 +266,54 @@ body {
     padding: 0 2px;
     border-radius: 3px;
     font-weight: 600;
+}
+
+.donation-section {
+    max-width: 360px;
+    width: 100%;
+    margin: 24px 0 0;
+    padding: 20px 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    align-self: center;
+}
+
+.donation-section h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: #333;
+}
+
+.donation-section p {
+    margin: 0;
+    color: #555;
+}
+
+.donation-qr {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin: 20px auto;
+    border-radius: 12px;
+    border: 1px solid #e2e2e2;
+    background: #fafafa;
+}
+
+.donation-note {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.donation-download {
+    display: inline-block;
+    margin-top: 12px;
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.donation-download:hover {
+    text-decoration: underline;
 }
