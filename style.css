@@ -39,6 +39,10 @@ body {
   }
   
   #quiz {
+    flex: 3;
+  }
+
+  .quiz-main #quiz {
     margin-bottom: 24px;
   }
   
@@ -317,3 +321,6 @@ body {
 .donation-download:hover {
     text-decoration: underline;
 }
+
+
+
