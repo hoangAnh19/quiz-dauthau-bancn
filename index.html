@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>340 Câu hỏi trắc nghiệm ôn luyện đấu thầu</title>
   <link rel="stylesheet" href="style.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-90FER2D78P"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-90FER2D78P');
@@ -19,50 +23,58 @@
   <style>
     .marquee-container {
       /* Khung chứa (viewing area) */
-      width: 100%; /* Hoặc 50% nếu bạn muốn chạy ở giữa */
+      width: 100%;
+      /* Hoặc 50% nếu bạn muốn chạy ở giữa */
       margin: 0;
-      overflow: hidden; /* Quan trọng: ẩn nội dung nằm ngoài khung */
+      overflow: hidden;
+      /* Quan trọng: ẩn nội dung nằm ngoài khung */
       white-space: nowrap;
       box-sizing: border-box;
       padding: 10px 0;
       border: 1px solid #ddd;
       background-color: #f9f9f9;
     }
-  
+
     .marquee-text {
       /* Dòng chữ cần chạy */
       display: inline-block;
       /* Dùng animation để làm cho chữ chạy */
-      animation: marquee 20s linear infinite; 
+      animation: marquee 20s linear infinite;
       font-size: 1.2em;
       font-weight: bold;
-      color: rgb(189, 23, 51); 
+      color: rgb(189, 23, 51);
     }
-  
+
     /* Định nghĩa hiệu ứng chạy lặp lại vô hạn */
     @keyframes marquee {
+
       /* Bắt đầu: Chữ nằm ngoài cùng bên phải của khung chứa */
       from {
-        transform: translateX(70%); 
+        transform: translateX(70%);
       }
+
       /* Kết thúc: Chữ di chuyển đến ngoài cùng bên trái của khung chứa */
       to {
-        transform: translateX(-70%); 
+        transform: translateX(-70%);
       }
     }
   </style>
 </head>
+
 <body>
   <div id="app">
     <h1>340 Câu hỏi trắc nghiệm ôn luyện đấu thầu</h1>
     <div class="marquee-container">
-      <a href="https://chungchidauthau.mpi.gov.vn/thong-bao-chung-tu-co-quan-don-vi" target="_blank"><span class="marquee-text">Bổ sung 70 câu hỏi theo thông báo Cục Quản lý đầu thầu - Bộ Tài Chính ngày 21/10/2025 (270 câu hỏi -> 340 câu hỏi)</span></a>
+      <a href="https://chungchidauthau.mpi.gov.vn/thong-bao-chung-tu-co-quan-don-vi" target="_blank"><span
+          class="marquee-text">Bổ sung 70 câu hỏi theo thông báo Cục Quản lý đầu thầu - Bộ Tài Chính ngày 21/10/2025
+          (270 câu hỏi -> 340 câu hỏi)</span></a>
     </div>
-      <div class="marquee-container">
-     <span class="marquee-text" style="color: cornflowerblue;">Update website: Bổ sung phân trang câu hỏi, bổ sung thời gian đếm ngược 60 phút bài test mô phỏng thời gian thi thực tế</span>
+    <div class="marquee-container">
+      <span class="marquee-text" style="color: cornflowerblue;">Update website: Bổ sung phân trang câu hỏi, bổ sung thời
+        gian đếm ngược 60 phút bài test mô phỏng thời gian thi thực tế</span>
     </div>
     <a href="test.html" class="nav-link">👉 Làm bài Test 70 câu ngẫu nhiên</a>
-    
+
     <a href='search.html' class='nav-link'>Tra cứu ngân hàng câu hỏi/đáp án</a>
     <h1 class="stats">
       Đúng: <span id="correctCount">0</span> / <span id="totalCount">340</span>
@@ -77,6 +89,15 @@
           <img src="donate-qr.png" alt="Ma QR ung ho tac gia" class="donation-qr">
           <p class="donation-note">Ghi chú chuyển khoản: <strong>Ung ho phan mem dau thau</strong></p>
           <a class="donation-download" href="donate-qr.png" download>Tải mã QR</a>
+          <p>Thông tin liên hệ/góp ý</p>
+          <p>Email: thabka99@gmail.com</p>
+          <p>
+            <a href="https://www.facebook.com/2022anh1k/" target="_blank">
+              <i class="fab fa-facebook" style="color:#1877F2; margin-right:6px;"></i>
+              Facebook
+            </a>
+          </p>
+
         </section>
       </div>
       <div class="sidebar">
@@ -89,8 +110,5 @@
   <!-- <script src="flags.js"></script> -->
   <script src="script.js"></script>
 </body>
+
 </html>
-
-
-
-
