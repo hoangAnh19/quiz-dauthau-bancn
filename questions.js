@@ -1887,7 +1887,7 @@ const questions = [
       " Nhà thầu X phải nộp 20 triệu đồng",
       " Nhà thầu X phải nộp 15 triệu đồng"
     ],
-    "correct": "B"
+    "correct": "A"
   },
   {
     "question": "Trường hợp hồ sơ mời thầu cho phép nhà thầu đề xuất biện pháp thi công khác với biện pháp thi công nêu trong hồ sơ mời thầu thì phần sai khác giữa khối lượng công việc theo biện pháp thi công nêu trong hồ sơ mời thầu và khối lượng công việc theo biện pháp thi công do nhà thầu đề xuất được xem xét thế nào?",
