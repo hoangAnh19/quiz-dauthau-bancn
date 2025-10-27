@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -155,6 +159,30 @@ body {
     border: 2px solid #000;
   }
 
+.sidebar-pager {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px 0 4px;
+}
+
+.sidebar-pager button {
+    padding: 6px 10px;
+    background: #6c757d;
+    color: #fff;
+}
+
+.sidebar-pager .page-label {
+    font-size: 14px;
+    color: #333;
+}
+
+.sidebar-pager .page-select {
+    padding: 6px 8px;
+    font-size: 14px;
+}
+
 .option-btn {
     display: block;
     width: 100%;
@@ -183,6 +211,11 @@ body {
     color: #fff;
     border-color: #dc3545;
   }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 .flagged-question {
     background: #f4e8ff;
@@ -324,3 +357,86 @@ body {
 
 
 
+/* Test timer */
+.timer {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #d9534f;
+  margin: 10px 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  body {
+    margin: 16px;
+  }
+  .quiz-container {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    margin: 12px;
+  }
+  .quiz-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    margin-left: 0;
+    margin-top: 12px;
+    max-height: none;
+  }
+  .sidebar-pager { display: flex; }
+  .nav-link {
+    width: 100%;
+    text-align: center;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-container input {
+    min-width: 0;
+    width: 100%;
+  }
+  .search-container button {
+    width: 100%;
+  }
+  #questionList {
+    grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  }
+  .sidebar-item {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  .donation-section {
+    max-width: 100%;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    margin: 8px;
+  }
+  .question {
+    padding: 14px;
+  }
+  .option-btn {
+    padding: 12px;
+    font-size: 16px;
+  }
+  .nav-links {
+    gap: 8px;
+  }
+  .nav-link {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+}

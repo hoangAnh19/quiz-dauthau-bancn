@@ -1,5 +1,11 @@
 const quizContainer = document.getElementById("quiz");
 const questionList = document.getElementById("questionList");
+const sidebarEl = document.querySelector('.sidebar');
+
+// Pagination for sidebar (desktop + mobile)
+let sidebarPage = 0; // 0-based
+const isMobileView = () => window.innerWidth <= 768;
+const pageSize = () => (isMobileView() ? 90 : 100);
 
 let currentIndex = 0;
 let correctCount = 0;
@@ -49,6 +55,7 @@ document.querySelector(".stats").appendChild(resetBtn);
 // =================================
 
 function renderQuestion(index) {
+  currentIndex = index;
   const q = questions[index];
   quizContainer.innerHTML = "";
   const div = document.createElement("div");
@@ -146,9 +153,15 @@ function renderQuestion(index) {
   div.appendChild(navDiv);
   quizContainer.appendChild(div);
 
-  // mark active sidebar
+  // mark active in sidebar (auto flip page on mobile)
+  const needPage = Math.floor(index / pageSize());
+  if (needPage !== sidebarPage) {
+    sidebarPage = needPage;
+    applySidebarPage();
+  }
   document.querySelectorAll(".sidebar-item").forEach(item => item.classList.remove("active"));
-  document.querySelector(`#q${index}`).classList.add("active");
+  const activeEl = document.querySelector(`#q${index}`);
+  if (activeEl) activeEl.classList.add("active");
 
   // cập nhật điểm hiển thị
   document.getElementById("correctCount").innerText = correctCount;
@@ -175,3 +188,155 @@ questions.forEach((q, index) => {
 
 // render câu đầu tiên
 renderQuestion(0);
+
+// --- Mobile sidebar paging: show 100 items per page ---
+(function(){
+  const totalPages = () => Math.ceil(questions.length / pageSize());
+
+  function ensurePager(){
+    if (!sidebarEl) return null;
+    let pager = document.querySelector('.sidebar-pager');
+    if (!pager) {
+      pager = document.createElement('div');
+      pager.className = 'sidebar-pager';
+      const prev = document.createElement('button');
+      prev.type = 'button';
+      prev.textContent = 'Trước';
+      prev.addEventListener('click', () => {
+        sidebarPage = Math.max(0, sidebarPage - 1);
+        applySidebarPage();
+      });
+      const label = document.createElement('span');
+      label.className = 'page-label';
+      const select = document.createElement('select');
+      select.className = 'page-select';
+      select.addEventListener('change', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (!Number.isNaN(val)) {
+          sidebarPage = Math.max(0, Math.min(totalPages() - 1, val));
+          applySidebarPage();
+        }
+      });
+      const next = document.createElement('button');
+      next.type = 'button';
+      next.textContent = 'Sau';
+      next.addEventListener('click', () => {
+        sidebarPage = Math.min(totalPages() - 1, sidebarPage + 1);
+        applySidebarPage();
+      });
+      pager.appendChild(prev);
+      pager.appendChild(label);
+      pager.appendChild(select);
+      pager.appendChild(next);
+      if (questionList && questionList.parentElement) {
+        questionList.parentElement.insertBefore(pager, questionList);
+      }
+    }
+    return pager;
+  }
+
+  function updatePagerUI(){
+    const pager = ensurePager();
+    if (!pager) return;
+    const label = pager.querySelector('.page-label');
+    if (label) label.textContent = `Trang ${sidebarPage + 1}/${totalPages()}`;
+    // dropdown options
+    const sel = pager.querySelector('.page-select');
+    if (sel) {
+      const tp = totalPages();
+      if (sel.options.length !== tp) {
+        sel.innerHTML = '';
+        for (let p = 0; p < tp; p++) {
+          const start = p * pageSize() + 1;
+          const end = Math.min(questions.length, (p + 1) * pageSize());
+          const opt = document.createElement('option');
+          opt.value = String(p);
+          opt.textContent = `Trang ${p + 1} (${start}-${end})`;
+          sel.appendChild(opt);
+        }
+      }
+      sel.value = String(sidebarPage);
+      sel.style.display = '';
+    }
+    pager.style.display = 'flex';
+  }
+
+  window.applySidebarPage = function applySidebarPage(){
+    const start = sidebarPage * pageSize();
+    const end = Math.min(questions.length, start + pageSize());
+    // Re-render list for the current page (works for both PC and mobile)
+    if (questionList) {
+      questionList.innerHTML = '';
+      for (let i = start; i < end; i++) {
+        const link = document.createElement('div');
+        link.id = `q${i}`;
+        link.className = 'sidebar-item';
+        if (flaggedQuestions.has(i)) link.classList.add('flagged-item');
+        link.innerText = i + 1;
+        link.onclick = () => renderQuestion(i);
+        if (answers[i]) {
+          if (answers[i].isCorrect) link.classList.add('correctMark');
+          else if (answers[i].selected) link.classList.add('wrongMark');
+        }
+        questionList.appendChild(link);
+      }
+    }
+    updatePagerUI();
+  }
+
+  // Initialize
+  ensurePager();
+  applySidebarPage();
+
+  // Re-evaluate on resize
+  let t;
+  window.addEventListener('resize', () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      // keep current index visible by auto-switching page
+      if (isMobileView()) {
+        const needPage = Math.floor(currentIndex / pageSize());
+        sidebarPage = Math.max(0, Math.min(totalPages()-1, needPage));
+      }
+      applySidebarPage();
+    }, 150);
+  });
+})();
+
+// --- Mobile: move donation section to bottom ---
+(function () {
+  const donation = document.querySelector('.donation-section');
+  const quizContainerEl = document.querySelector('.quiz-container');
+  if (!donation || !quizContainerEl) return;
+
+  const originalParent = donation.parentElement;
+  const originalNext = donation.nextElementSibling; // may be null
+
+  const isMobile = () => window.innerWidth <= 768;
+
+  function moveToBottom() {
+    if (quizContainerEl.nextElementSibling !== donation) {
+      quizContainerEl.after(donation);
+    }
+  }
+
+  function restorePosition() {
+    if (originalNext && originalNext.parentElement === originalParent) {
+      originalParent.insertBefore(donation, originalNext);
+    } else {
+      originalParent.appendChild(donation);
+    }
+  }
+
+  function applyPlacement() {
+    if (isMobile()) moveToBottom(); else restorePosition();
+  }
+
+  applyPlacement();
+
+  let t;
+  window.addEventListener('resize', () => {
+    clearTimeout(t);
+    t = setTimeout(applyPlacement, 150);
+  });
+})();

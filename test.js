@@ -141,3 +141,52 @@ function checkCompletion() {
 
 // render câu đầu tiên
 renderQuestion(0);
+
+// ====== 60-minute countdown timer for test ======
+(function(){
+  let timeUp = false;
+  const appRoot = document.getElementById('app');
+  const timerBox = document.createElement('div');
+  timerBox.className = 'timer';
+  const label = document.createElement('span');
+  label.textContent = 'Thời gian còn lại: ';
+  const timerEl = document.createElement('span');
+  timerEl.id = 'test-timer';
+  timerBox.appendChild(label);
+  timerBox.appendChild(timerEl);
+  const quizWrapper = document.querySelector('.quiz-container');
+  if (appRoot) {
+    if (quizWrapper) appRoot.insertBefore(timerBox, quizWrapper);
+    else appRoot.appendChild(timerBox);
+  }
+
+  let seconds = 60 * 60; // 60 minutes
+  function fmt(s){ const m=Math.floor(s/60), ss=s%60; return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0'); }
+  function disableAllOptions(){
+    if (quizContainer) quizContainer.querySelectorAll('button').forEach(b=> b.disabled = true);
+  }
+  function onTimeout(){
+    if (timeUp) return;
+    timeUp = true;
+    disableAllOptions();
+    alert(`Hết thời gian! Kết quả: ${correctCount}/${selectedQuestions.length}`);
+  }
+  function tick(){
+    if (!timerEl) return;
+    if (seconds <= 0){ timerEl.textContent = '00:00'; onTimeout(); return; }
+    timerEl.textContent = fmt(seconds);
+    seconds -= 1;
+  }
+  // initial paint
+  tick();
+  const intervalId = setInterval(()=>{
+    if (timeUp){ clearInterval(intervalId); return; }
+    tick();
+    if (seconds <= 0){ clearInterval(intervalId); }
+  }, 1000);
+
+  // Ensure new renders are also disabled after timeout
+  const mo = new MutationObserver(()=>{ if (timeUp) disableAllOptions(); });
+  if (quizContainer) mo.observe(quizContainer, { childList: true, subtree: true });
+})();
+// ================================================
