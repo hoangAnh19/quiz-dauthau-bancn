@@ -5,7 +5,7 @@ const sidebarEl = document.querySelector('.sidebar');
 // Pagination for sidebar (desktop + mobile)
 let sidebarPage = 0; // 0-based
 const isMobileView = () => window.innerWidth <= 768;
-const pageSize = () => (isMobileView() ? 90 : 100);
+const pageSize = () => (isMobileView() ? 90 : 90);
 
 let currentIndex = 0;
 let correctCount = 0;
