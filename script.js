@@ -5,7 +5,7 @@ const sidebarEl = document.querySelector('.sidebar');
 // Pagination for sidebar (desktop + mobile)
 let sidebarPage = 0; // 0-based
 const isMobileView = () => window.innerWidth <= 768;
-const pageSize = () => (isMobileView() ? 90 : 90);
+const pageSize = () => (isMobileView() ? 90 : 100);
 
 let currentIndex = 0;
 let correctCount = 0;
@@ -85,16 +85,16 @@ function renderQuestion(index) {
         }
       
         const sidebarItem = document.querySelector(`#q${index}`);
-        sidebarItem.classList.remove("correctMark", "wrongMark");
+        if (sidebarItem) sidebarItem.classList.remove("correctMark", "wrongMark");
       
         if (opt === q.correct) {
           btn.classList.add("correct");
-          sidebarItem.classList.add("correctMark");
+          if (sidebarItem) sidebarItem.classList.add("correctMark");
           correctCount++;
           answers[index] = { selected: opt, isCorrect: true, showAnswer: answers[index]?.showAnswer || false };
         } else {
           btn.classList.add("wrong");
-          sidebarItem.classList.add("wrongMark");
+          if (sidebarItem) sidebarItem.classList.add("wrongMark");
           answers[index] = { selected: opt, isCorrect: false, showAnswer: answers[index]?.showAnswer || false };
         }
 
@@ -288,16 +288,13 @@ renderQuestion(0);
   ensurePager();
   applySidebarPage();
 
-  // Re-evaluate on resize
+  // Re-evaluate on resize (keep current question's page visible)
   let t;
   window.addEventListener('resize', () => {
     clearTimeout(t);
     t = setTimeout(() => {
-      // keep current index visible by auto-switching page
-      if (isMobileView()) {
-        const needPage = Math.floor(currentIndex / pageSize());
-        sidebarPage = Math.max(0, Math.min(totalPages()-1, needPage));
-      }
+      const needPage = Math.floor(currentIndex / pageSize());
+      sidebarPage = Math.max(0, Math.min(totalPages()-1, needPage));
       applySidebarPage();
     }, 150);
   });
