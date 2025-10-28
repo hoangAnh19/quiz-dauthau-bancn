@@ -3357,7 +3357,7 @@ const questions = [
       " Khuyến khích áp dụng",
       " Tùy quy mô, tính chất từng gói thầu"
     ],
-    "correct": "A"
+    "correct": "C"
   },
   {
     "question": "Gói thầu mua thuốc là gói thầu nào?",
