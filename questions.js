@@ -2617,7 +2617,7 @@ const questions = [
       " Hệ thống mạng đấu thầu quốc gia tự động gửi email thông báo về việc sửa đổi E-HSMT, thay đổi thời điểm đóng thầu (nếu có) cho các nhà thầu quan tâm đến gói thầu",
       " Các phương án trên đều đúng"
     ],
-    "correct": "A"
+    "correct": "D"
   },
   {
     "question": "Trường hợp E-HSMT không đầy đủ thông tin (thiếu thiết kế, bản vẽ và các tài liệu khác) hoặc thông tin không rõ ràng, gây khó khăn cho nhà thầu trong việc chuẩn bị EHSDT thì chủ đầu tư phải làm gì?",
