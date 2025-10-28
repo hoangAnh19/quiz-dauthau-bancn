@@ -20,7 +20,13 @@ let savedCorrect = parseInt(localStorage.getItem("indexCorrectCount") || "0");
 let answers = Array(questions.length).fill(null);
 if (savedAnswers) {
   answers = savedAnswers;
-  correctCount = savedCorrect;
+  // Recalculate from saved answers to avoid negative counts
+  try {
+    correctCount = answers.reduce((sum, a) => sum + (a && a.isCorrect ? 1 : 0), 0);
+  } catch (e) {
+    correctCount = 0;
+  }
+  localStorage.setItem("indexCorrectCount", String(correctCount));
 }
 document.getElementById("correctCount").innerText = correctCount;
 // =============================================
@@ -103,6 +109,7 @@ function renderQuestion(index) {
         localStorage.setItem("indexCorrectCount", correctCount);
         // =========================================
 
+        if (correctCount < 0) correctCount = 0;
         document.getElementById("correctCount").innerText = correctCount;
       };
       
