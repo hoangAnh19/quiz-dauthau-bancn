@@ -171,7 +171,7 @@ function renderResults(matches, normalizedNeedle) {
     }
 
     const heading = document.createElement("h3");
-    appendHighlightedText(heading, `Cau ${index + 1}: ${question.question}`, normalizedNeedle);
+    appendHighlightedText(heading, `Câu ${index + 1}: ${question.question}`, normalizedNeedle);
     card.appendChild(heading);
 
     const list = document.createElement("ul");

@@ -1697,7 +1697,7 @@ const questions = [
       " Bị đưa vào xem xét, đánh giá về kỹ thuật trong quá trình lựa chọn nhà thầu đối với gói thầu xây lắp, phi tư vấn, hàng hóa, hỗn hợp",
       " Đáp án B và C đều đúng"
     ],
-    "correct": "D"
+    "correct": "B"
   },
   {
     "question": "Trong gói thầu dịch vụ tư vấn, thông tin về uy tín của nhà thầu được sử dụng để?",
