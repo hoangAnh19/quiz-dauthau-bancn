@@ -199,25 +199,14 @@ function handleSearch() {
   const term = searchInput.value;
   const trimmedTerm = term.trim();
 
-  if (!trimmedTerm) {
-    resultsContainer.innerHTML = "";
-    infoLine.textContent = "Nhap tu khoa de bat dau tim kiem.";
-    return;
-  }
-
-  if (trimmedTerm.length < 2) {
-    resultsContainer.innerHTML = "";
-    infoLine.textContent = "Nhap it nhat 2 ky tu.";
+  // Hien toan bo danh sach khi khong nhap hoac nhap ngan
+  if (!trimmedTerm || trimmedTerm.length < 2) {
+    const all = questions.map((question, index) => ({ question, index }));
+    renderResults(all, "");
     return;
   }
 
   const normalizedNeedle = normalizeText(trimmedTerm);
-  if (!normalizedNeedle) {
-    resultsContainer.innerHTML = "";
-    infoLine.textContent = "Ky tu tim kiem khong hop le.";
-    return;
-  }
-
   const matches = searchQuestions(normalizedNeedle);
   renderResults(matches, normalizedNeedle);
 }
@@ -226,8 +215,14 @@ searchInput.addEventListener("input", handleSearch);
 clearButton.addEventListener("click", () => {
   searchInput.value = "";
   searchInput.focus();
-  resultsContainer.innerHTML = "";
-  infoLine.textContent = "Nhap tu khoa de bat dau tim kiem.";
+  const all = questions.map((question, index) => ({ question, index }));
+  renderResults(all, "");
 });
+
+// Render day du danh sach khi mo trang
+(function initialRender(){
+  const all = questions.map((question, index) => ({ question, index }));
+  renderResults(all, "");
+})();
 
 searchInput.focus();
