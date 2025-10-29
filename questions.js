@@ -747,7 +747,7 @@ const questions = [
       " Không được quy định uy tín của nhà thầu thông qua việc tham dự thầu trong tiêu chuẩn đánh giá về kỹ thuật",
       " Hợp đồng tương tự được xác định trên cơ sở tương tự cả về tính chất và quy mô (giá trị hợp đồng)"
     ],
-    "correct": "B"
+    "correct": "A"
   },
   {
     "question": "Đối với gói thầu xây dựng “Trường trung học phổ thông A”, bao gồm tổ hợp các công trình:\n+ Nhà A1 (Nhà học): Cao 10 tầng, tổng diện tích sàn 8.000 m2, có giá trị theo dự toán được duyệt là (2X) VND. Nhà A1 là công trình kết cấu dạng nhà cấp II theo quy định của Thông tư số 06/2021/TT-BXD.\n+ Nhà A2 (Nhà học): Cao 6 tầng, tổng diện tích sàn 1.000 m2, có giá trị theo dự toán được duyệt là (Y) VND. Nhà A2 là công trình kết cấu dạng nhà cấp III theo quy định của Thông tư số 06/2021/TT-BXD.\n+ Hàng rào bảo vệ: Cao 3m\n+ Nhà bảo vệ: Cao 1 tầng, diện tích sàn 12 m2.\nKinh nghiệm thi công công trình tương tự được quy định trong hồ sơ mời thầu như thế nào là phù hợp?",
@@ -1057,7 +1057,7 @@ const questions = [
       " Gói thầu dịch vụ tư vấn áp dụng hình thức đấu thầu rộng rãi được phép thương thảo về chi phí trong quá trình thương thảo hợp đồng",
       " Không được phép thương thảo về chi phí trong quá trình thương thảo hợp đồng đối với tất cả các gói thầu, trừ trường hợp nhà thầu tự nguyện giảm giá"
     ],
-    "correct": "D"
+    "correct": "C"
   },
   {
     "question": "Hợp đồng nào được phép sử dụng để chứng minh hợp đồng tương tự khi tham dự gói thầu cung cấp thuốc có sử dụng ngân sách nhà nước của Bệnh viện?",
@@ -2327,7 +2327,7 @@ const questions = [
       " Cho phép gia hạn thời điểm đóng thầu tối thiểu 05 ngày làm việc đối với gói thầu xây lắp, hỗn hợp có giá gói thầu không quá 20 tỷ đồng, gói thầu mua sắm hàng hoá, dịch vụ phi tư vấn có giá không quá 10 tỷ đồng",
       " Phương án A và C đều đúng"
     ],
-    "correct": "A"
+    "correct": "D"
   },
   {
     "question": "Khi đánh giá E-HSDT gói thầu xây lắp đấu thầu rộng rãi qua mạng, trường hợp có sự không thống nhất giữa thông tin về hợp đồng tương tự kê khai trên webform và file tài liệu chứng minh các thông tin về hợp đồng đó thì xử lý như nào?",
