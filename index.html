@@ -60,21 +60,54 @@
     }
 
     .donation-section {
-  text-align: center;
-  margin: 40px auto;
-  max-width: 500px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+      text-align: center;
+      margin: 40px auto;
+      max-width: 500px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-title {
+      font-size: 30px;
+    }
+
+
+    .sub-title {
+      font-size: 20px;
+      text-align: center;
+      font-weight: bolder;
+    }
+
+
+    /* Nếu là màn hình mobile (rộng dưới 768px) */
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 20px;
+      }
+
+      .sub-title {
+        font-size: 16px;
+      }
+
+      .extra-text {
+        display: none;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div id="app">
-    <h1>340 Câu hỏi trắc nghiệm ôn luyện đấu thầu</h1>
+    <h1 class="main-title">
+      Hệ thống ôn luyện thi nghiệp vụ đấu thầu miễn phí - hiệu quả
+    </h1>
+    <h2 class="sub-title">
+      Ngân hàng đề thi 340 câu hỏi
+      <span class="extra-text"> - Cục Quản lý Đấu thầu - Bộ Tài chính</span>
+    </h2>
     <!-- <div class="marquee-container">
       <a href="https://chungchidauthau.mpi.gov.vn/thong-bao-chung-tu-co-quan-don-vi" target="_blank"><span
           class="marquee-text">Bổ sung 70 câu hỏi theo thông báo Cục Quản lý đầu thầu - Bộ Tài Chính ngày 21/10/2025
@@ -93,7 +126,7 @@
     <div class="quiz-container">
       <div class="quiz-main">
         <div id="quiz"></div>
-     
+
       </div>
       <div class="sidebar">
         <h3>Danh sách câu hỏi</h3>
@@ -101,29 +134,30 @@
       </div>
     </div>
 
-   <section class="donation-section">
-          <h2>Ủng hộ tác giả ❤️</h2>
-          <p>Nếu bạn thấy nội dung hữu ích, vui lòng quét mã QR bên dưới để động viên tác giả, đã xây dựng và duy trì website.</p>
-          <p>Cảm ơn bạn rất nhiều!</p>
-          <img src="donate-qr.png" alt="Ma QR ung ho tac gia" class="donation-qr">
-          <p class="donation-note">Vietcombank: <strong>1015468972</strong></p>
-          <p class="donation-note">Ghi chú chuyển khoản: <strong>Ung ho phan mem dau thau</strong></p>
-          <a class="donation-download" href="donate-qr.png" download>Tải mã QR</a>
-          <p>Thông tin liên hệ/góp ý</p>
-          <p style="color: #d63384;">
-            <i class="fa-solid fa-envelope" style="margin-right: 6px; color: #ff4757;"></i>
-            Email: <span style="color: #1877F2;">thabka99@gmail.com</span>
-          </p>
+    <section class="donation-section">
+      <h2>Ủng hộ tác giả ❤️</h2>
+      <p>Nếu bạn thấy nội dung hữu ích, vui lòng quét mã QR bên dưới để động viên tác giả, đã xây dựng và duy trì
+        website.</p>
+      <p>Cảm ơn bạn rất nhiều!</p>
+      <img src="donate-qr.png" alt="Ma QR ung ho tac gia" class="donation-qr">
+      <p class="donation-note">Vietcombank: <strong>1015468972</strong></p>
+      <p class="donation-note">Ghi chú chuyển khoản: <strong>Ung ho phan mem dau thau</strong></p>
+      <a class="donation-download" href="donate-qr.png" download>Tải mã QR</a>
+      <p>Thông tin liên hệ/góp ý</p>
+      <p style="color: #d63384;">
+        <i class="fa-solid fa-envelope" style="margin-right: 6px; color: #ff4757;"></i>
+        Email: <span style="color: #1877F2;">thabka99@gmail.com</span>
+      </p>
 
-          <p>
-            <a href="https://www.facebook.com/2022anh1k/" target="_blank">
-              <i class="fab fa-facebook" style="text-decoration: none;color:#1877F2; margin-right:6px; "></i>
-              Facebook
-            </a>
-          </p>
+      <p>
+        <a href="https://www.facebook.com/2022anh1k/" target="_blank">
+          <i class="fab fa-facebook" style="text-decoration: none;color:#1877F2; margin-right:6px; "></i>
+          Facebook
+        </a>
+      </p>
 
 
-        </section>
+    </section>
 
   </div>
   <script src="questions.js"></script>
