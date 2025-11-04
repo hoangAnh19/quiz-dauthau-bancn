@@ -727,7 +727,7 @@ const questions = [
       " Được quy định hàng hóa thuộc cùng chủng loại hoặc hàng hóa có cùng mã Chương, mã Nhóm (tương ứng với 4 số đầu tiên của bộ mã) trong Hệ thống mã HS với mã HS của máy điều hòa",
       " Tất cả đáp án trên đều đúng"
     ],
-    "correct": "A"
+    "correct": "C"
   },
   {
     "question": "Tiêu chuẩn đánh giá về kỹ thuật gói thầu dịch vụ phi tư vấn không bao gồm nội dung nào sau đây?",
@@ -2387,7 +2387,7 @@ const questions = [
       " Tư cách hợp lệ, nhà thầu không có nhân sự bị tòa án kết án có hành vi vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng, trạng thái bị tạm ngừng, chấm dứt tham gia Hệ thống mạng đấu thầu quốc gia, thực hiện nghĩa vụ kê khai thuế và nộp thuế, kết quả hoạt động tài chính, doanh thu bình quân hằng năm",
       " Tư cách hợp lệ, nhà thầu không có nhân sự bị tòa án kết án có hành vi vi phạm quy định về đấu thầu gây hậu quả nghiêm trọng, lịch sử không hoàn thành hợp đồng do lỗi của nhà thầu, thực hiện nghĩa vụ kê khai thuế và nộp thuế, kết quả hoạt động tài chính, doanh thu bình quân hằng năm"
     ],
-    "correct": "D"
+    "correct": "C"
   },
   {
     "question": "Quy trình 02 trong đánh giá E-HSDT được áp dụng đối với gói thầu nào sau đây?",
