@@ -1,0 +1,17 @@
+.git
+.gitignore
+.env
+data
+node_modules
+*.log
+CHAY-WEBSITE.cmd
+start.ps1
+questions copy.js
+questions_bk.js
+questions_bk copy.js
+questions.js.395
+questions_395 (1).js
+questions_50 (1).js
+questions_50_absolute.js
+questions_50_full.js
+testtruycap.html

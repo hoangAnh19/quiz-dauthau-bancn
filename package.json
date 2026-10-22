@@ -1,0 +1,1 @@
+{"name":"dauthau-academy","private":true,"version":"1.0.0","scripts":{"start":"node server/server.js","test":"node --test server/server.test.js","admin":"node server/admin.js"},"engines":{"node":">=24"}}

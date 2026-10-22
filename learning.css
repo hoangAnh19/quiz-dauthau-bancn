@@ -1,0 +1,12 @@
+/* Shared visual treatment for the original free learning tools. */
+body{background:#f6f8f4;color:#243f35;font-family:'Segoe UI',Arial,sans-serif;margin:0;padding:28px 24px}
+#app{max-width:1200px;margin:0 auto}
+.legacy-header{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto 28px;padding-bottom:20px;border-bottom:1px solid #dfe6dc;gap:15px}
+.legacy-header a{color:#285c43;text-decoration:none;font-size:14px;font-weight:600}.legacy-header .legacy-brand{font-size:20px;letter-spacing:-.5px}
+h1.main-title,#app>h1:first-child{font-size:27px;text-align:left;margin-bottom:12px}.sub-title{font-size:16px!important;text-align:left!important;color:#718171;font-weight:500!important}
+.nav-link{background:#27664c;border-radius:8px;font-size:14px;margin-right:8px;padding:11px 16px}.nav-link:hover{background:#174c37}
+.question,.sidebar,.search-result{border:1px solid #e0e6dc;border-radius:12px;box-shadow:none}.question{padding:25px}.sidebar{padding:18px}.question h3{line-height:1.75}
+.stats{background:#eaf0e5;border-radius:10px;padding:12px;font-size:16px;color:#48683e}.stats button{font-size:13px;background:#fff;color:#48683e}
+button{border-radius:8px}input{border:1px solid #cedac7;border-radius:8px;padding:12px;font:inherit}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #cda965;outline-offset:3px}
+.marquee-container{display:none}.donation-section{border-color:#e0e6dc!important;color:#667763}.donation-section h2{font-size:19px}.donation-qr{max-width:180px}
+@media(max-width:600px){body{padding:18px 14px}.legacy-header{margin-bottom:20px}.legacy-header .legacy-brand{font-size:17px}.legacy-header a{font-size:11px}h1.main-title,#app>h1:first-child{font-size:22px}.sub-title{font-size:13px!important}.nav-link{font-size:12px;padding:10px 12px}.question{padding:16px}.question h3{font-size:16px}}
