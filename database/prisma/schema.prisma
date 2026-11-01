@@ -1,0 +1,257 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum PublicationStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum AttemptType {
+  PRACTICE
+  EXAM
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+}
+
+enum SettingType {
+  STRING
+  NUMBER
+  BOOLEAN
+  JSON
+}
+
+model User {
+  id           String             @id @default(uuid()) @db.Uuid
+  email        String             @unique
+  passwordHash String
+  displayName  String
+  isActive     Boolean            @default(true)
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  roles        UserRole[]
+  attempts     ExamAttempt[]
+  progress     PracticeProgress[]
+  bookmarks    Bookmark[]
+  auditLogs    AuditLog[]         @relation("AuditActor")
+}
+
+model Role {
+  id          String           @id @default(uuid()) @db.Uuid
+  code        String           @unique
+  name        String
+  users       UserRole[]
+  permissions RolePermission[]
+}
+
+model Permission {
+  id    String           @id @default(uuid()) @db.Uuid
+  code  String           @unique
+  name  String
+  roles RolePermission[]
+}
+
+model UserRole {
+  userId String @db.Uuid
+  roleId String @db.Uuid
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role   Role   @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  @@id([userId, roleId])
+}
+
+model RolePermission {
+  roleId       String     @db.Uuid
+  permissionId String     @db.Uuid
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  @@id([roleId, permissionId])
+}
+
+model QuestionBank {
+  id          String            @id @default(uuid()) @db.Uuid
+  slug        String            @unique
+  title       String
+  description String?
+  status      PublicationStatus @default(DRAFT)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  categories  Category[]
+  questions   Question[]
+  examConfigs ExamConfiguration[]
+}
+
+model Category {
+  id             String       @id @default(uuid()) @db.Uuid
+  questionBankId String       @db.Uuid
+  parentId       String?      @db.Uuid
+  slug           String
+  name           String
+  position       Int          @default(0)
+  questionBank   QuestionBank @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  parent         Category?    @relation("CategoryTree", fields: [parentId], references: [id])
+  children       Category[]   @relation("CategoryTree")
+  questions      Question[]
+  @@unique([questionBankId, slug])
+  @@index([questionBankId, position])
+}
+
+model Question {
+  id             String            @id @default(uuid()) @db.Uuid
+  questionBankId String            @db.Uuid
+  categoryId     String?           @db.Uuid
+  status         PublicationStatus @default(DRAFT)
+  currentVersion Int               @default(1)
+  position       Int               @default(0)
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+  deletedAt      DateTime?
+  questionBank   QuestionBank      @relation(fields: [questionBankId], references: [id], onDelete: Restrict)
+  category       Category?         @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  versions       QuestionVersion[]
+  attemptItems   ExamAttemptQuestion[]
+  progress       PracticeProgress[]
+  bookmarks      Bookmark[]
+  @@index([questionBankId, status])
+  @@unique([questionBankId, position])
+  @@index([categoryId, status])
+}
+
+model QuestionVersion {
+  id           String         @id @default(uuid()) @db.Uuid
+  questionId   String         @db.Uuid
+  version      Int
+  content      String
+  explanation String?
+  source       String?
+  createdAt    DateTime       @default(now())
+  question     Question       @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  options      AnswerOption[]
+  @@unique([questionId, version])
+}
+
+model AnswerOption {
+  id                String          @id @default(uuid()) @db.Uuid
+  questionVersionId String          @db.Uuid
+  content           String
+  position          Int
+  isCorrect         Boolean         @default(false)
+  questionVersion   QuestionVersion @relation(fields: [questionVersionId], references: [id], onDelete: Cascade)
+  @@unique([questionVersionId, position])
+}
+
+model ExamConfiguration {
+  id             String       @id @default(uuid()) @db.Uuid
+  questionBankId String       @db.Uuid
+  name           String
+  questionCount  Int
+  durationMinute Int?
+  passingPercent Int          @default(50)
+  isActive       Boolean      @default(true)
+  questionBank   QuestionBank @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  attempts       ExamAttempt[]
+  @@index([questionBankId, isActive])
+}
+
+model ExamAttempt {
+  id              String                @id @default(uuid()) @db.Uuid
+  userId          String?               @db.Uuid
+  examConfigId    String?               @db.Uuid
+  type            AttemptType
+  status          AttemptStatus         @default(IN_PROGRESS)
+  score           Int?
+  totalQuestions  Int
+  startedAt       DateTime              @default(now())
+  submittedAt     DateTime?
+  user            User?                 @relation(fields: [userId], references: [id], onDelete: SetNull)
+  examConfig      ExamConfiguration?    @relation(fields: [examConfigId], references: [id], onDelete: SetNull)
+  questions       ExamAttemptQuestion[]
+  @@index([userId, startedAt])
+}
+
+model ExamAttemptQuestion {
+  id              String       @id @default(uuid()) @db.Uuid
+  attemptId       String       @db.Uuid
+  questionId      String       @db.Uuid
+  position        Int
+  questionSnapshot Json
+  selectedOptionIds String[]
+  isCorrect       Boolean?
+  answeredAt      DateTime?
+  attempt         ExamAttempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question        Question     @relation(fields: [questionId], references: [id], onDelete: Restrict)
+  @@unique([attemptId, position])
+  @@unique([attemptId, questionId])
+}
+
+model PracticeProgress {
+  userId      String   @db.Uuid
+  questionId  String   @db.Uuid
+  attemptCount Int     @default(0)
+  correctCount Int     @default(0)
+  lastAnsweredAt DateTime?
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question    Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  @@id([userId, questionId])
+}
+
+model Bookmark {
+  userId     String   @db.Uuid
+  questionId String   @db.Uuid
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  @@id([userId, questionId])
+}
+
+model ImportJob {
+  id          String   @id @default(uuid()) @db.Uuid
+  sourceName  String
+  checksum    String
+  dryRun      Boolean  @default(true)
+  status      String
+  report      Json?
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+  @@index([checksum])
+}
+
+model SiteSetting {
+  key       String      @id
+  type      SettingType
+  value     Json
+  updatedAt DateTime    @updatedAt
+}
+
+model Announcement {
+  id        String   @id @default(uuid()) @db.Uuid
+  content   String
+  startsAt  DateTime?
+  endsAt    DateTime?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([isActive, startsAt, endsAt])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid()) @db.Uuid
+  actorId    String?  @db.Uuid
+  action     String
+  entityType String
+  entityId   String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  actor      User?    @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+  @@index([entityType, entityId, createdAt])
+  @@index([actorId, createdAt])
+}

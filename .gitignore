@@ -1,0 +1,13 @@
+node_modules/
+.pnpm-store/
+.next/
+dist/
+coverage/
+database/generated/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+data/*.sqlite-shm
+data/*.sqlite-wal
+debug.log

@@ -1,0 +1,16 @@
+{
+  "name": "quiz-dauthau-bancn",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter @quiz/web --filter @quiz/api dev",
+    "build": "pnpm -r --if-present build",
+    "lint": "pnpm -r --if-present lint",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm -r --if-present test",
+    "db:generate": "pnpm --filter @quiz/database generate",
+    "db:validate": "pnpm --filter @quiz/database validate",
+    "db:migrate": "pnpm --filter @quiz/database migrate:dev"
+  }
+}
