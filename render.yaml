@@ -6,7 +6,7 @@ services:
     plan: free
     buildCommand: pnpm install --frozen-lockfile && pnpm --filter @quiz/database generate && pnpm --filter @quiz/api build
     preDeployCommand: pnpm --filter @quiz/database migrate:deploy
-    startCommand: pnpm --filter @quiz/api start
+    startCommand: node apps/api/dist/apps/api/src/main.js
     healthCheckPath: /api/v1/health
     envVars:
       - key: NODE_ENV
