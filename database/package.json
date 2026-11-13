@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate": "prisma generate",
+    "generate": "prisma generate && node scripts/fix-runtime-imports.mjs",
     "validate": "prisma validate",
     "format": "prisma format",
-    "migrate:dev": "prisma migrate dev"
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "7.10.1",
