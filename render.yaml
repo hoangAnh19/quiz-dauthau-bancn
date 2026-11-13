@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: quiz-dauthau-api
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm --filter @quiz/database generate && pnpm --filter @quiz/api build
+    preDeployCommand: pnpm --filter @quiz/database migrate:deploy
+    startCommand: pnpm --filter @quiz/api start
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGINS
+        value: https://onthidauthau.xyz,https://www.onthidauthau.xyz
+      - key: API_PORT
+        value: 10000

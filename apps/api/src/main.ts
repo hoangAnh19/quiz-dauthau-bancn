@@ -23,7 +23,9 @@ async function bootstrap(): Promise<void> {
     .build();
   SwaggerModule.setup('api/docs', app, SwaggerModule.createDocument(app, swaggerConfig));
 
-  await app.listen(config.getOrThrow<number>('API_PORT'));
+  // Render supplies PORT at runtime; keep API_PORT for local development.
+  const port = process.env.PORT ? Number(process.env.PORT) : config.getOrThrow<number>('API_PORT');
+  await app.listen(port);
 }
 
 void bootstrap();
