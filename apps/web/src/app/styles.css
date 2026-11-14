@@ -15,6 +15,7 @@ body {
   color: var(--ink);
   background: var(--background);
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
 }
 .appFrame { min-height: 100vh; display: flex; }
 .appSidebar { width: 250px; flex: 0 0 250px; min-height: 100vh; padding: 22px 14px; background: #0d3852; color: #e7f1f7; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; }
@@ -69,19 +70,34 @@ h1 { max-width: none; margin: 0 0 18px; color:#102a43; font-family:"Segoe UI", "
 
 @media (max-width: 720px) {
   .appFrame { display:block; }
-  .appSidebar { position:sticky; z-index:2; top:0; width:100%; height:auto; min-height:0; padding:10px 12px; flex-direction:row; align-items:center; overflow-x:auto; }
-  .brand { white-space:nowrap; padding:4px 10px 4px 0; }
-  .appSidebar nav { display:flex; gap:4px; }
-  .appSidebar nav a,.navDisabled { white-space:nowrap; padding:9px 10px; }
+  .appSidebar { position:sticky; z-index:2; top:0; width:100%; height:auto; min-height:0; padding:9px 12px; flex-direction:row; align-items:center; overflow-x:auto; scrollbar-width:none; }
+  .appSidebar::-webkit-scrollbar { display:none; }
+  .brand { flex:0 0 auto; white-space:nowrap; padding:4px 10px 4px 0; }
+  .brand span { width:30px; height:30px; }
+  .appSidebar nav { display:flex; flex:0 0 auto; gap:3px; }
+  .appSidebar nav a,.navDisabled { white-space:nowrap; padding:9px 10px; font-size:.92rem; }
   .appSidebar small,.sidebarNote { display:none; }
-  main { padding: 42px 0; }
-  .hero { padding-top: 10px; }
-  h1 { max-width:100%; font-size:clamp(2.25rem, 11vw, 3.2rem); letter-spacing:-.035em; white-space:normal; }
-  .lead { font-size:1rem; }
+  main { width: min(100% - 24px, 620px); padding: 24px 0 40px; }
+  .hero { padding: 4px 2px 0; }
+  .eyebrow { margin-bottom:10px; padding:6px 10px; font-size:.7rem; }
+  h1 { max-width:100%; font-size:clamp(1.85rem, 9vw, 2.55rem); letter-spacing:-.035em; line-height:1.12; white-space:normal; }
+  .lead { margin-top:12px; font-size:.92rem; line-height:1.5; }
   .lead { white-space:normal; }
-  .quizShell { grid-template-columns: 1fr; }
+  .quizShell { grid-template-columns: 1fr; gap:16px; margin-top:22px; }
   .mockExamLayout { grid-template-columns: 1fr; }
-  .questionNav { position: static; max-height: 290px; }
+  .questionNav { display:none; }
+  .questionCard { padding:26px 25px 24px; border-radius:20px; box-shadow:0 8px 24px rgb(16 42 67 / 8%); }
+  .questionLabel { margin-bottom:12px; font-size:1.05rem; }
+  .questionCard h2 { font-size:clamp(1.2rem, 5vw, 1.45rem); line-height:1.38; }
+  .answerList { gap:12px; margin-top:26px; }
+  .answerButton { gap:12px; padding:15px 14px; border-radius:14px; line-height:1.42; font-size:.98rem; }
+  .answerButton span { flex-basis:30px; height:30px; }
+  .questionActions { display:grid; grid-template-columns:auto 1fr; gap:10px 12px; margin-top:26px; }
+  .questionActions button { min-height:52px; padding:10px 14px; }
+  .questionActions .primaryButton { grid-column:1; grid-row:2; }
+  .questionActions .secondaryButton { grid-column:1; grid-row:1; }
+  .questionActions .revealButton { grid-column:2; grid-row:1; }
+  .answerNotice { font-size:.92rem; }
   .examQuestion { scroll-margin-top: 92px; }
   .questionGrid { grid-template-columns: repeat(10, 1fr); }
   .adminLayout { grid-template-columns:1fr; }
