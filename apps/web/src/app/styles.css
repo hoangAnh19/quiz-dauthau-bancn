@@ -85,7 +85,9 @@ h1 { max-width: none; margin: 0 0 18px; color:#102a43; font-family:"Segoe UI", "
   .lead { white-space:normal; }
   .quizShell { grid-template-columns: 1fr; gap:16px; margin-top:22px; }
   .mockExamLayout { grid-template-columns: 1fr; }
-  .questionNav { display:none; }
+  .questionNav { display:block; position:static; max-height:214px; padding:14px; overflow:auto; border-radius:16px; }
+  .navHeading { margin-bottom:12px; font-size:.92rem; }
+  .questionNumber { min-height:30px; border-radius:7px; font-size:.82rem; }
   .questionCard { padding:26px 25px 24px; border-radius:20px; box-shadow:0 8px 24px rgb(16 42 67 / 8%); }
   .questionLabel { margin-bottom:12px; font-size:1.05rem; }
   .questionCard h2 { font-size:clamp(1.2rem, 5vw, 1.45rem); line-height:1.38; }
