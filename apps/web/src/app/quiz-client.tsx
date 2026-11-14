@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Answer, QuizQuestion } from '../data/question-bank';
+import { trackEvent } from './analytics';
 
 type Props = { questions: QuizQuestion[] };
 
@@ -24,6 +25,7 @@ export function QuizClient({ questions }: Props) {
   }
 
   function choose(answer: Answer) {
+    trackEvent('quiz_answer', { question_id: question.id });
     setAnswers((previous) => { const next={ ...previous, [question.id]: answer }; localStorage.setItem('quiz-progress', JSON.stringify(Object.fromEntries(questions.filter(item => next[item.id] !== undefined).map(item => [item.id, next[item.id] === item.answer])))); return next; });
   }
 

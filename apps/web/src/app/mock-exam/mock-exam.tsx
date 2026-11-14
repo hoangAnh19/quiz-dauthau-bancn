@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { Answer, QuizQuestion } from '../../data/question-bank';
+import { trackEvent } from '../analytics';
 
 const letters: Answer[] = ['A', 'B', 'C', 'D'];
 
@@ -91,7 +92,7 @@ export function MockExam({ questions, initialExam }: { questions: QuizQuestion[]
             </article>
           ))}
           {!submitted && (
-            <button type="button" className="primaryButton examSubmitButton" onClick={() => setSubmitted(true)}>
+            <button type="button" className="primaryButton examSubmitButton" onClick={() => { trackEvent('quiz_complete', { quiz_type: 'mock_exam', question_count: exam.length, answered_count: answeredCount }); setSubmitted(true); }}>
               Nộp bài ({answeredCount}/{exam.length})
             </button>
           )}
