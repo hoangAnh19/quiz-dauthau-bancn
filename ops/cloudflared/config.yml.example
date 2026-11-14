@@ -1,0 +1,11 @@
+# Copy this file to %USERPROFILE%\.cloudflared\config.yml after creating a
+# named tunnel with `cloudflared tunnel create onthidauthau`.
+tunnel: YOUR-TUNNEL-UUID
+credentials-file: C:\Users\YOUR-WINDOWS-USER\.cloudflared\YOUR-TUNNEL-UUID.json
+
+ingress:
+  - hostname: onthidauthau.xyz
+    service: http://127.0.0.1:3000
+  - hostname: www.onthidauthau.xyz
+    service: http://127.0.0.1:3000
+  - service: http_status:404

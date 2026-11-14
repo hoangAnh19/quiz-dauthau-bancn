@@ -22,6 +22,18 @@ Yêu cầu Node.js 24+, pnpm 11+ và Docker.
 
 Frontend mặc định ở `http://localhost:3000`; API ở `http://localhost:3001/api/v1`; Swagger ở `http://localhost:3001/api/docs`.
 
+## Tự khởi động Windows và Cloudflare Tunnel
+
+Để Docker/Postgres, API, web port 3000 và tunnel tự chạy sau khi đăng nhập Windows:
+
+1. Cài `cloudflared` và tạo named tunnel cho domain `onthidauthau.xyz`.
+2. Sao chép `ops/cloudflared/config.yml.example` thành `%USERPROFILE%\.cloudflared\config.yml`, thay UUID/user và chạy `cloudflared tunnel route dns onthidauthau onthidauthau.xyz` (thêm `www` nếu cần).
+3. Mở PowerShell tại thư mục dự án và chạy:
+
+   `powershell -ExecutionPolicy Bypass -File .\ops\windows\register-stack-task.ps1`
+
+Task `QuizDauthau-Stack` sẽ chờ Docker Desktop, chạy migration, build/start API + web và khởi động tunnel. Log nằm trong `C:\WebServer\startup.log`, `api.log`, `web.log` và `cloudflared.log`.
+
 ## Kiểm tra
 
 ```text

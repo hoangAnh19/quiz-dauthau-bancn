@@ -1,0 +1,34 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/mock-exam/layout,_N_T_/mock-exam/page,_N_T_/mock-exam"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/mock-exam/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/a46aa505e06f6c6a9fb8d9aee317f344a837721fcf0719ffaffef880e84887fe/$/mock-exam",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/mock-exam/page"
+    },
+    "isFallback": false
+  }
+}
