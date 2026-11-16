@@ -25,6 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link href="/">Luyện tập <small>430 câu</small></Link>
               {/* <Link href="/admin">Quản trị câu hỏi <small>Nội bộ</small></Link> */}
               <Link href="/mock-exam">Thi thử <small>70 câu</small></Link>
+              <Link href="/practice">Luyện tập ngẫu nhiên <small>10–100 câu</small></Link>
               <Link href="/search">Tra cứu <small>430 câu</small></Link>
               <Link href="/progress">Tiến độ học <small>Thiết bị này</small></Link>
               <Link href="/analytics">Thống kê <small>GA4</small></Link>

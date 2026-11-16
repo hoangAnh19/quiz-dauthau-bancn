@@ -41,6 +41,7 @@ export function MockExam({ questions, initialExam }: { questions: QuizQuestion[]
         <p className="eyebrow">Thi thử</p>
         <h1>Đề ngẫu nhiên 70 câu</h1>
         <p className="lead">Chọn đáp án, sau đó nộp bài để xem kết quả.</p>
+        <button type="button" className="primaryButton topExamButton" onClick={reset}>Tạo đề mới</button>
       </header>
 
       <div className="mockExamLayout">
@@ -82,7 +83,6 @@ export function MockExam({ questions, initialExam }: { questions: QuizQuestion[]
           {submitted && (
             <div className="examResult">
               <strong>{score}/{exam.length} câu đúng</strong>
-              <button type="button" className="primaryButton" onClick={reset}>Tạo đề mới</button>
             </div>
           )}
           {exam.map((question, index) => (
