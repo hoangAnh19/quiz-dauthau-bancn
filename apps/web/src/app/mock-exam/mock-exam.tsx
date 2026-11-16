@@ -6,6 +6,17 @@ import { trackEvent } from '../analytics';
 
 const letters: Answer[] = ['A', 'B', 'C', 'D'];
 
+function shuffleQuestions(questions: QuizQuestion[]) {
+  const shuffled = [...questions];
+
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const target = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[target]] = [shuffled[target]!, shuffled[index]!];
+  }
+
+  return shuffled.slice(0, 70);
+}
+
 export function MockExam({ questions, initialExam }: { questions: QuizQuestion[]; initialExam: QuizQuestion[] }) {
   const [exam, setExam] = useState<QuizQuestion[]>(initialExam);
   const [answers, setAnswers] = useState<Record<number, Answer>>({});
@@ -14,7 +25,7 @@ export function MockExam({ questions, initialExam }: { questions: QuizQuestion[]
   const score = useMemo(() => exam.filter((question) => answers[question.id] === question.answer).length, [answers, exam]);
 
   function reset() {
-    setExam([...questions].sort(() => Math.random() - 0.5).slice(0, 70));
+    setExam(shuffleQuestions(questions));
     setAnswers({});
     setSubmitted(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -92,9 +103,12 @@ export function MockExam({ questions, initialExam }: { questions: QuizQuestion[]
             </article>
           ))}
           {!submitted && (
-            <button type="button" className="primaryButton examSubmitButton" onClick={() => { trackEvent('quiz_complete', { quiz_type: 'mock_exam', question_count: exam.length, answered_count: answeredCount }); setSubmitted(true); }}>
-              Nộp bài ({answeredCount}/{exam.length})
-            </button>
+            <div className="examActions">
+              <button type="button" className="secondaryButton" onClick={reset}>Tạo đề mới</button>
+              <button type="button" className="primaryButton examSubmitButton" onClick={() => { trackEvent('quiz_complete', { quiz_type: 'mock_exam', question_count: exam.length, answered_count: answeredCount }); setSubmitted(true); }}>
+                Nộp bài ({answeredCount}/{exam.length})
+              </button>
+            </div>
           )}
         </section>
       </div>
